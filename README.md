@@ -1,5 +1,9 @@
 # README
 
+![Build Status](https://codeship.com/projects/cba47870-99b9-0135-7534-42741cf973da/status?branch=master)
+![Code Climate](https://codeclimate.com/github/maxsean/yana.png)
+![Coverage Status](https://coveralls.io/repos/maxsean/yana/badge.png)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
