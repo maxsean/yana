@@ -20,3 +20,7 @@
 /public/packs
 /public/packs-test
 /node_modules
+
+/coverage
+.DS_Store
+.env
