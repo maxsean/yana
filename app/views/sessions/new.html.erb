@@ -1,0 +1,19 @@
+<% provide(:title, "Log in") %>
+<h1>Log in</h1>
+
+<div>
+  <div>
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.label :email_or_username, "Email or Username" %>
+      <%= f.text_field :login %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  </div>
+</div>
