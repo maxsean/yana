@@ -1,6 +1,9 @@
 {
   "name": "YANA",
   "private": true,
+  "engines": {
+    "yarn": "1.2.1"
+  },
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
     "babel-preset-react": "^6.24.1",
