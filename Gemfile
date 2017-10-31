@@ -23,12 +23,17 @@ end
 
 group :development, :test do
   gem 'capybara'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '4.8.0'
+  gem 'factory_girl', '4.8.1'
   gem 'launchy', require: false
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda'
   gem 'valid_attribute'
+end
+
+group :test do
+  gem 'coveralls', require: false
 end
 
 group :production do
