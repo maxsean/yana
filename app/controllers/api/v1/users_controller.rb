@@ -1,5 +1,4 @@
 class Api::V1::UsersController < Api::V1::ApiController
-  # before_action :doorkeeper_authorize!, only: [:show]
   # before_action :authenticate_user_api!, only: [:update]
 
   def create

@@ -14,8 +14,6 @@ gem 'webpacker'
 gem 'jquery-rails'
 gem "recaptcha", require: "recaptcha/rails"
 gem "oauth2"
-gem "doorkeeper"
-
 
 group :development do
   gem 'listen', '~> 3.0.5'
