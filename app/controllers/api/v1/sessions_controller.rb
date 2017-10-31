@@ -1,4 +1,4 @@
-class Api::V1::SessionsController < Api:V1:ApiController
+class Api::V1::SessionsController < Api::V1::ApiController
   def create
     authenticator = Authenticator.new(params[:session])
     if authenticator.authenticated?
