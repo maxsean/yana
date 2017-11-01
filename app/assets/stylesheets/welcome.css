@@ -1,0 +1,89 @@
+.body {
+  background-image: url(http://www.publicdomainpictures.net/pictures/30000/velka/evening-landscape-13530956185Aw.jpg);
+}
+
+#hiddenSpace {
+  background-color: #000;
+  display: inline;
+}
+
+.welcomeQuote {
+  margin-bottom: 100px ;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+#welcomeLeft {
+  float: left;
+  background: rgba(255, 255, 255, 0.5);
+  display: inline;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  bottom: 20px;
+  border-radius: 25px;
+  transition: all 1s ease;
+}
+
+#welcomeLeft:hover {
+  width: 45%;
+  background-color: #FFF;
+}
+
+#welcomeRight {
+  float: right;
+  background: rgba(255, 255, 255, 0.5);
+  display: inline;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  bottom: 20px;
+  border-radius: 25px;
+  transition: all 1s ease;
+}
+
+#welcomeRight:hover {
+  width: 45%;
+  background-color: #FFF;
+}
+
+.link {
+  color: #000;
+}
+
+blockquote{
+  display: block;
+  background-color: rgba(255, 255, 255, 0.2);
+  position: relative;
+  margin-top: 50px;
+
+  /*Font*/
+  font-family: Georgia, serif;
+  font-size: 35px;
+  text-align: justify;
+  width: 100%;
+
+}
+
+blockquote::before{
+  content: "\201C";
+  font-family: Georgia, serif;
+  font-size: 60px;
+  font-weight: bold;
+
+  /*Positioning*/
+  position: absolute;
+  left: -20px;
+  top: -20px;
+}
+
+blockquote q{
+  color: black;
+}
+
+blockquote em{
+  font-style: italic;
+  color: #000;
+}

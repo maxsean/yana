@@ -5,3 +5,18 @@
 .registration {
   float: right;
 }
+
+.authentication {
+  float: right;
+  width: 20%;
+  display: inline;
+}
+
+.backButton {
+  opacity: 0.5;
+}
+
+.home {
+  font-size: 40px;
+  color: #000;
+}

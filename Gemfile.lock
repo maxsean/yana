@@ -87,6 +87,9 @@ GEM
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
+    foundation-rails (5.4.5.0)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     http-cookie (1.0.3)
@@ -267,6 +270,7 @@ DEPENDENCIES
   coveralls
   factory_girl (= 4.8.1)
   factory_girl_rails (= 4.8.0)
+  foundation-rails
   jquery-rails
   launchy
   listen (~> 3.0.5)
