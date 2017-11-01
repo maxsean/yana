@@ -1,13 +1,17 @@
 {
   "name": "YANA",
   "private": true,
+  "engines": {
+    "yarn": "1.2.1"
+  },
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
     "babel-preset-react": "^6.24.1",
     "coffeescript": "1.12.7",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "react-router": "3.2.0"
   },
   "devDependencies": {
     "enzyme": "^3.1.0",
@@ -22,6 +26,6 @@
     "phantomjs-prebuilt": "^2.1.15",
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.0.0",
-    "webpack-dev-server": "^2.9.3"
+    "webpack-dev-server": "^2.9.2"
   }
 }
