@@ -3,17 +3,36 @@
   <head>
     <title>YANA</title>
     <%= csrf_meta_tags %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
+  <body class="body">
     <div class="flash">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
     </div>
+
+    <div>
+      <% if user_signed_in? %>
+        <%= link_to 'Sign Out', root_path, method: :delete %>
+      <% else %>
+        <%= form_for(:session, url: root_path, html: { style: 'width: 20%;' }) do |f| %>
+
+          <%= f.label :email_or_username, "Email or Username" %>
+          <%= f.text_field :login, style: 'float: left;' %>
+
+          <%= f.label :password %>
+          <%= f.password_field :password, class: "authentication" %>
+
+          <%= f.submit "Log in", style: 'float: right;' %>
+        <% end %>
+      <% end %>
+    </div>
+
+
     <%= yield %>
   </body>
 </html>
