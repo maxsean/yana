@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20171101203950) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "users", id: :serial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.boolean "admin", default: false
     t.string "confirmation_digest"
     t.datetime "confirmed_at"
