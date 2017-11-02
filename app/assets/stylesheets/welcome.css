@@ -1,5 +1,8 @@
 .body {
-  background-image: url(http://www.publicdomainpictures.net/pictures/30000/velka/evening-landscape-13530956185Aw.jpg);
+  background-image: url("background4.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 #hiddenSpace {

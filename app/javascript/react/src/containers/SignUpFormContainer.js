@@ -71,7 +71,7 @@ class SignUpFormContainer extends Component {
       <div className="signUpFormContainer">
         {errors}
         <form
-          className="callout"
+          className="signUpForm"
           onSubmit={this.handleSubmit}>
           <TextInputField
             content={this.state.handle}
