@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171101203950) do
 
   # These are extensions that must be enabled in order to support this database
@@ -58,13 +57,6 @@ ActiveRecord::Schema.define(version: 20171101203950) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-=======
-ActiveRecord::Schema.define(version: 20161022175126) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-  
->>>>>>> master
   create_table "users", id: :serial, force: :cascade do |t|
     t.boolean "admin", default: false
     t.string "confirmation_digest"

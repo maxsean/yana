@@ -4,12 +4,6 @@
   "engines": {
     "yarn": "1.2.1"
   },
-<<<<<<< HEAD
-  "scripts": {
-    "start": "./bin/webpack-dev-server"
-  },
-=======
->>>>>>> master
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
     "babel-preset-react": "^6.24.1",
