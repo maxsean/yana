@@ -19,15 +19,24 @@ class SessionsController < ApplicationController
       #   render :new
       # end
     else
+<<<<<<< HEAD
       flash[:alert] = "Invalid email/username & password combination."
       redirect_to root_path
+=======
+      flash.now[:alert] = "Invalid email/username & password combination."
+      render :new
+>>>>>>> master
     end
   end
 
   def destroy
     sign_out
     flash[:success] = "Signed out."
+<<<<<<< HEAD
     redirect_to root_path
+=======
+    redirect_to root_url
+>>>>>>> master
   end
 
 end
