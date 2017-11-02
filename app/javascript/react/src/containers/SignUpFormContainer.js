@@ -20,7 +20,7 @@ class SignUpFormContainer extends Component {
 
   clearForm() {
     this.setState({
-      username: "",
+      handle: "",
       email: "",
       password: "",
       password_confirmation: ""
@@ -39,7 +39,7 @@ class SignUpFormContainer extends Component {
       if (data.error) {
         this.setState({ errors: data.error })
       } else {
-        this.setState({ errors: {} })
+        this.setState({ errors: data.messages })
       }
     })
   }
@@ -71,7 +71,7 @@ class SignUpFormContainer extends Component {
       <div className="signUpFormContainer">
         {errors}
         <form
-          className="callout"
+          className="signUpForm"
           onSubmit={this.handleSubmit}>
           <TextInputField
             content={this.state.handle}

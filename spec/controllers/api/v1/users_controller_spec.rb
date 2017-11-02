@@ -34,8 +34,8 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     it "should return user if sent data is valid" do
 
       post_json = {
-        handle: "testuser",
-        email: "test@user.com",
+        handle: "rspectest",
+        email: "rspec@test.com",
         password: "123456",
         password_confirmation: "123456"
       }.to_json
