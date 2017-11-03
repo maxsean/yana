@@ -9,9 +9,19 @@ class PostIndexContainer extends React.Component {
     }
   }
   render(){
+    let posts = this.props.posts.map(post => {
+      return(
+        <PostTile
+          key={String(Date.now()) + '-' + post.id}
+          id={post.id}
+          title={post.title}
+          body={post.body}
+        />
+      )
+    })
     return(
       <div>
-
+        {posts}
       </div>
     )
   }

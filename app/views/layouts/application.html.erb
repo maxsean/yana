@@ -18,21 +18,27 @@
     <div>
       <% if user_signed_in? %>
         <%= link_to 'Sign Out', root_path, method: :delete %>
-      <% else %>
-        <%= form_for(:session, url: root_path, html: { style: 'width: 20%;' }) do |f| %>
-
-          <%= f.label :email_or_username, "Email or Username" %>
-          <%= f.text_field :login, style: 'float: left;' %>
-
-          <%= f.label :password %>
-          <%= f.password_field :password, class: "authentication" %>
-
-          <%= f.submit "Log in", style: 'float: right;' %>
-        <% end %>
       <% end %>
     </div>
 
+    <div>
+      <% if current_user.nil? %>
+        <%= form_for(:session, url: root_path, html: { style: 'width: 20%;' }) do |f| %>
+
+        <%= f.label :email_or_username, "Email or Username" %>
+        <%= f.text_field :login, style: 'float: left;' %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "authentication" %>
+
+        <%= f.submit "Log in", style: 'float: right;' %>
+        <% end %>
+      <% end %>
+    </div>
+    <script src="//d3js.org/d3.v3.min.js"></script>
 
     <%= yield %>
+
+
   </body>
 </html>

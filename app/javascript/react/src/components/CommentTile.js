@@ -1,9 +1,17 @@
 import React from 'react';
 
 const CommentTile = (props) => {
+  let body = props.body
+  let created_at = props.created_at
   return(
-    <div>
-
+    <div className="grid-x" id="tile">
+      <div className="small-12">
+        {body}
+      </div>
+      <div className="small-12">
+        {Date(created_at).toString().substring(3,15)}
+      </div>
+      <hr/>
     </div>
   )
 }

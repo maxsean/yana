@@ -13,7 +13,8 @@
 }
 
 .backButton {
-  opacity: 0.5;
+  float: right;
+  display: inline;
 }
 
 .home {

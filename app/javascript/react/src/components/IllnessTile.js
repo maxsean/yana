@@ -1,9 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router'
 
 const IllnessTile = (props) => {
   return(
-    <div>
-
+    <div className="grid-x" id="tile">
+      <div className="small-12" id="link">
+        <Link to={`/illnesses/${props.id}`}> {props.name} </Link>
+      </div>
+      <div className="small-12">
+        {props.description}
+      </div>
+      <hr/>
     </div>
   )
 }
