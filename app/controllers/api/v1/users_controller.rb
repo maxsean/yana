@@ -1,6 +1,14 @@
 class Api::V1::UsersController < Api::V1::ApiController
   # before_action :authenticate_user_api!, only: [:update]
 
+  def index
+    if current_user
+      render json: { user: current_user }
+    else
+      render json: { user: {id: false} }
+    end
+  end
+
   def create
     body = JSON.parse(request.body.read)
     # checker = ReCaptchaChecker.new(params[:re_captcha_response])

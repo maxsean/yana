@@ -1,5 +1,6 @@
 .navBar {
   width: 100%;
+  padding: 0 20px;
 }
 
 .registration {
@@ -12,9 +13,14 @@
   display: inline;
 }
 
-.backButton {
+.button {
   float: right;
   display: inline;
+  height: auto;
+  width: auto;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .home {
