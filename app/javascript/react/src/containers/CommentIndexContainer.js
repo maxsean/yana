@@ -22,6 +22,9 @@ class CommentIndexContainer extends React.Component {
 
     return(
       <div id="index">
+        <h3>
+          Comments
+        </h3>
         {comments}
       </div>
     )

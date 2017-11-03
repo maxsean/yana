@@ -10,7 +10,8 @@ Rails.application.routes.draw do
       resources :users
       resources :illnesses, only: [:index, :show]
       resources :forums, only: [:show]
-      resources :posts, only: [:show]
+      resources :posts, only: [:show, :create, :destroy]
+      resources :comments, only: [:create, :destroy]
     end
   end
 
