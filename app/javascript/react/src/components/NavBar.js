@@ -7,6 +7,11 @@ const NavBar = props => {
     <div>
       <div className="navBar">
         <Link to='/' className="home"> YANA </Link>
+        <Link to='/illnesses'> Explore </Link>
+        <div id="BackButton">
+          <BackButton/>
+        </div>
+        <a href='/charts'><p>Charts</p></a>
       </div>
         {props.children}
     </div>

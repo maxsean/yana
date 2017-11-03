@@ -1,5 +1,5 @@
 import React from 'react'
-import CommentTile from './PostIndexContainer'
+import CommentTile from '../components/CommentTile'
 
 class CommentIndexContainer extends React.Component {
   constructor(props){
@@ -9,9 +9,20 @@ class CommentIndexContainer extends React.Component {
     }
   }
   render(){
-    return(
-      <div>
+    let comments = this.props.comments.map(comment => {
+      return(
+        <CommentTile
+          key={String(Date.now()) + '-' + comment.id}
+          id={comment.id}
+          body={comment.body}
+          created_at={comment.created_at}
+        />
+      )
+    })
 
+    return(
+      <div id="index">
+        {comments}
       </div>
     )
   }

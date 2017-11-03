@@ -9,9 +9,19 @@ class ForumIndexContainer extends React.Component{
     }
   }
   render(){
+    let forums = this.props.forums.map(forum => {
+      return(
+        <ForumTile
+          key={String(Date.now()) + '-' + forum.id}
+          id={forum.id}
+          name={forum.name}
+          description={forum.description}
+        />
+      )
+    })
     return(
-      <div>
-
+      <div id="index">
+        {forums}
       </div>
     )
   }

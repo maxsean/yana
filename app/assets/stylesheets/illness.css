@@ -1,0 +1,22 @@
+#illnessIntro {
+  margin-left: 7.5%;
+  margin-right: 7.5%;
+  padding: 0 5%;
+}
+
+#illnessTile {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-left: 12.5%;
+  margin-right: 12.5%;
+  padding: 0 5%;
+}
+
+#illnessIndex {
+  height: 400px;
+  overflow-y: scroll;
+}
+
+#illnessLink {
+  font-size: 24px;
+}

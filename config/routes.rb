@@ -8,9 +8,13 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users
+      resources :illnesses, only: [:index, :show]
+      resources :forums, only: [:show]
+      resources :posts, only: [:show]
     end
   end
 
+  resources :charts
   # resources :users
   root 'static_pages#index'
   get '*path', to: 'static_pages#index'
