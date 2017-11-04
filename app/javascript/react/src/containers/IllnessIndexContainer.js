@@ -15,7 +15,7 @@ class IllnessIndexContainer extends React.Component {
     .then(response => response.json())
     .then(data => {
       this.setState({
-        illnesses: data,
+        illnesses: data.illnesses,
       })
     })
   }

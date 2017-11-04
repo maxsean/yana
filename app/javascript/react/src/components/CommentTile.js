@@ -9,7 +9,7 @@ const CommentTile = (props) => {
         {body}
       </div>
       <div className="small-12">
-        {Date(created_at).toString().substring(3,15)}
+        Made by {props.user.handle} on {Date(created_at).toString().substring(3,15)}
       </div>
       <hr/>
     </div>

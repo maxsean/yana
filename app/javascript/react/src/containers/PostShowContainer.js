@@ -27,10 +27,12 @@ class PostShowContainer extends React.Component {
     fetch(`/api/v1/posts/${postId}`)
     .then(response => response.json())
     .then(data => {
+      let post = JSON.parse(data.post)
+      let comments = JSON.parse(data.comments)
       this.setState({
-        post: data.post,
-        comments: data.comments,
-        post_user: data.post_user
+        post: post,
+        comments: comments,
+        post_user: post.user
       })
     })
   }
@@ -59,9 +61,10 @@ class PostShowContainer extends React.Component {
       if (data.error) {
         this.setState({ errors: data.error })
     } else {
+        let comments = JSON.parse(data.comments)
         this.setState({
           errors: data.messages,
-          comments: data.comments
+          comments: comments
         })
       }
     })
