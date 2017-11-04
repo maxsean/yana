@@ -1,12 +1,10 @@
 class Api::V1::PostsController < Api::V1::ApiController
   def show
-    post = Post.find(params["id"])
+    post = Post.find(params["id"]).to_json(include: :user)
 
-    post_user = post.user
+    comments = Post.find(params["id"]).comments.order('created_at DESC').to_json(include: :user)
 
-    comments = post.comments.order('created_at DESC')
-
-    render json: { post: post, comments: comments, post_user: post_user}
+    render json: {post: post, comments: comments}
   end
 
   def create
@@ -14,7 +12,7 @@ class Api::V1::PostsController < Api::V1::ApiController
     post = Post.new(body)
 
     if post.save
-      posts = Post.where(forum_id: body["forum_id"]).order('created_at DESC')
+      posts = Post.where(forum_id: body["forum_id"]).order('created_at DESC').to_json(include: :user)
 
       render json: {posts: posts, messages: {post: ["successful!"]}}
     else

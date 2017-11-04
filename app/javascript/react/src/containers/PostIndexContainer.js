@@ -21,6 +21,8 @@ class PostIndexContainer extends React.Component {
           id={post.id}
           title={post.title}
           body={post.body}
+          user={post.user}
+          created_at={post.created_at}
         />
       )
     })

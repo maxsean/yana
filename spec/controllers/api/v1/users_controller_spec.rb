@@ -46,7 +46,6 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 
       expect(response.status).to eq 201
       expect(returned_json).to be_kind_of(Hash)
-      expect(returned_json.length).to eq 3
     end
   end
 end

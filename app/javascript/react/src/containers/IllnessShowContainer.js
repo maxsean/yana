@@ -6,8 +6,7 @@ class IllnessShowContainer extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      illness: {},
-      forums: []
+      illness: {forums: []},
     }
   }
 
@@ -18,17 +17,17 @@ class IllnessShowContainer extends React.Component {
     .then(data => {
       this.setState({
         illness: data.illness,
-        forums: data.forums
       })
     })
   }
 
   render(){
+    debugger;
     let forumIndex;
-    if(this.state.forums.length > 0){
+    if(this.state.illness["forums"].length > 0){
       forumIndex =
       <ForumIndexContainer
-        forums={this.state.forums}
+        forums={this.state.illness["forums"]}
       />
     }
     return(

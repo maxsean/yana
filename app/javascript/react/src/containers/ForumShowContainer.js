@@ -38,9 +38,10 @@ class ForumShowContainer extends React.Component {
     fetch(`/api/v1/forums/${forumId}`)
     .then(response => response.json())
     .then(data => {
+      let posts = JSON.parse(data.posts)
       this.setState({
         forum: data.forum,
-        posts: data.posts
+        posts: posts
       })
     })
   }
@@ -57,9 +58,10 @@ class ForumShowContainer extends React.Component {
       if (data.error) {
         this.setState({ errors: data.error })
     } else {
+      let posts = JSON.parse(data.posts)
         this.setState({
           errors: data.messages,
-          posts: data.posts
+          posts: posts
         })
       }
     })

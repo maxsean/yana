@@ -4,7 +4,7 @@ class Api::V1::CommentsController < Api::V1::ApiController
     comment = Comment.new(body)
 
     if comment.save
-      comments = Comment.where(post_id: body["post_id"]).order('created_at DESC')
+      comments = Comment.where(post_id: body["post_id"]).order('created_at DESC').to_json(include: :user)
 
       render json: {comments: comments, messages: {comment: ["posted!"]}}
     else

@@ -15,6 +15,7 @@ class CommentIndexContainer extends React.Component {
           key={String(Date.now()) + '-' + comment.id}
           id={comment.id}
           body={comment.body}
+          user={comment.user}
           created_at={comment.created_at}
         />
       )

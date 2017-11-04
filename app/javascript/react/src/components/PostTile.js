@@ -11,6 +11,7 @@ class PostTile extends React.Component {
   }
   render(){
     let id = this.props.id
+    let created_at = this.props.created_at
     return(
       <div className="grid-x" id="tile">
         <div className="small-12" id="link">
@@ -18,6 +19,9 @@ class PostTile extends React.Component {
         </div>
         <div className="small-12">
           {this.props.body}
+        </div>
+        <div className="small-12">
+          Made by {this.props.user.handle} on {Date(created_at).toString().substring(3,15)}
         </div>
         <hr/>
       </div>
