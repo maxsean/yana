@@ -26,8 +26,12 @@ ActiveRecord::Schema.define(version: 20171101203950) do
   end
 
   create_table "diagnoses", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "illness_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["illness_id"], name: "index_diagnoses_on_illness_id"
+    t.index ["user_id"], name: "index_diagnoses_on_user_id"
   end
 
   create_table "forums", force: :cascade do |t|
