@@ -7,7 +7,7 @@ const TextInputField = props => {
       placeholder={props.placeholder}
       id={props.name}
       name={props.name}
-      type='text'
+      type={props.type}
       value={props.content}
     />
     </label>

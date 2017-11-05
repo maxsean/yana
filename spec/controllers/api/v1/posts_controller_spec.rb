@@ -20,8 +20,8 @@ RSpec.describe Api::V1::PostsController, type: :controller do
       expect(response.status).to eq 200
 
       expect(returned_json).to be_kind_of(Hash)
-      expect(post_json["title"]).to eq "post4"
-      expect(post_json["body"]).to eq "post body 4"
+      expect(post_json["title"]).to eq "post8"
+      expect(post_json["body"]).to eq "post body 8"
 
       expect(association_json).to be_kind_of(Array)
       expect(association_json.length).to eq 2

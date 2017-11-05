@@ -5,12 +5,12 @@ class PostIndexContainer extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      reviews: {}
+      posts: {}
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ reviews: nextProps.reviews });
+    this.setState({ posts: nextProps.posts });
   }
 
   render(){
