@@ -16,4 +16,12 @@ RSpec.describe User, type: :model do
     expect(user).to_not be_valid
     expect(user.errors[:password_confirmation]).to_not be_blank
   end
+
+  it {should have_many(:post_votes)}
+  it {should have_many(:posts)}
+  it {should have_many(:comments)}
+  it {should have_many(:submissions)}
+  it {should have_many(:choices).through(:submissions)}
+  it {should have_many(:diagnoses)}
+  it {should have_many(:illnesses).through(:diagnoses)}
 end
