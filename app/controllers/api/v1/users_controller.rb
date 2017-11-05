@@ -17,7 +17,8 @@ class Api::V1::UsersController < Api::V1::ApiController
     # user.password_confirmation = params[:password_confirmation]
     if user.save
       # user.send_confirmation_email
-      render json: user, status: :created
+      messages = {registration: ["successful, please login"]}
+      render json: {messages: messages}, status: :created
     else
       # user.valid?
       render json: { error: user.errors }, status: :unprocessable_entity

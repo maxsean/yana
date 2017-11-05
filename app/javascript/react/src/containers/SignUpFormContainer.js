@@ -69,7 +69,9 @@ class SignUpFormContainer extends Component {
     }
     return(
       <div className="signUpFormContainer">
-        {errors}
+        <div style={{paddingLeft:'25%'}}>        
+          {errors}
+        </div>
         <form
           className="signUpForm"
           onSubmit={this.handleSubmit}>
@@ -78,24 +80,28 @@ class SignUpFormContainer extends Component {
             label="Username: "
             name="handle"
             handleChange={this.handleChange}
+            type="text"
           />
           <TextInputField
             content={this.state.email}
             label="Email: "
             name="email"
             handleChange={this.handleChange}
+            type="text"
           />
           <TextInputField
             content={this.state.password}
             label="Password: "
             name="password"
             handleChange={this.handleChange}
+            type="password"
           />
           <TextInputField
             content={this.state.password_confirmation}
             label="Confirmation: "
             name="password_confirmation"
             handleChange={this.handleChange}
+            type="password"
           />
           <div className='button-group'>
               <input className='button' type='submit' value='Submit' />

@@ -12,9 +12,17 @@ class PostShowContainer extends React.Component {
       comments: [],
       post_user: {},
       current_user: {},
-      errors: {}
+      errors: {},
+      disabledUpvote: false,
+      disabledDownvote: false,
+      karma: 0,
+      upvote: 0,
+      downvote: 0
     }
-    this.addNewComment = this.addNewComment.bind(this)
+    this.addNewComment = this.addNewComment.bind(this);
+    this.handleUpvoteClicked = this.handleUpvoteClicked.bind(this);
+    this.handleDownvoteClicked = this.handleDownvoteClicked.bind(this);
+    this.handleClearClicked = this.handleClearClicked.bind(this);
   }
 
   componentDidMount() {
@@ -46,6 +54,121 @@ class PostShowContainer extends React.Component {
     .then(response => response.json())
     .then(data => {
       this.setState({ current_user: data.user });
+      this.fetchPostVote(data.user.id, this.props.params.id)
+    })
+  }
+
+  fetchPostVote(user, post) {
+    let check_state = {
+      user_id: user,
+      post_id: post
+    }
+    fetch('/api/v1/post_votes', {
+      method: "POST",
+      body: JSON.stringify(check_state)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if(data["value"] == -1) {
+        this.setState({
+          disabledUpvote: false,
+          disabledDownvote: true
+        })
+      } else if(data["value"] == 0) {
+        this.setState({
+          disabledUpvote: false,
+          disabledDownvote: false
+        })
+      } else if(data["value"] == 1) {
+        this.setState({
+          disabledUpvote: true,
+          disabledDownvote: false
+        })
+      }
+      this.setState({
+        karma: data["karma"],
+        upvote: data["upvote"],
+        downvote: data["downvote"]
+      })
+    })
+  }
+
+  handleUpvoteClicked() {
+    if (!this.state.disabledUpvote) {
+      this.setState({
+        disabledUpvote: true,
+        disabledDownvote: false
+      });
+      let vote = {
+        user_id: this.state.current_user.id,
+        post_id: this.props.params.id,
+        value: 1
+      }
+      let postId = this.props.params.id
+      fetch(`/api/v1/post_votes/${postId}`, {
+        method: "PATCH",
+        body: JSON.stringify(vote)}
+      )
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          karma: data["karma"],
+          upvote: data["upvote"],
+          downvote: data["downvote"]
+        })
+      })
+    }
+  }
+
+  handleDownvoteClicked() {
+    if (!this.state.disabledDownvote) {
+      this.setState({
+        disabledUpvote: false,
+        disabledDownvote: true
+      });
+      let vote = {
+        user_id: this.state.current_user.id,
+        post_id: this.props.params.id,
+        value: -1
+      }
+      let postId = this.props.params.id
+      fetch(`/api/v1/post_votes/${postId}`, {
+        method: "PATCH",
+        body: JSON.stringify(vote)}
+      )
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          karma: data["karma"],
+          upvote: data["upvote"],
+          downvote: data["downvote"]
+        })
+      })
+    }
+  }
+
+  handleClearClicked() {
+    this.setState({
+      disabledUpvote: false,
+      disabledDownvote: false
+    });
+    let vote = {
+      user_id: this.state.current_user.id,
+      post_id: this.props.params.id,
+      value: 0
+    }
+    let postId = this.props.params.id
+    fetch(`/api/v1/post_votes/${postId}`, {
+      method: "PATCH",
+      body: JSON.stringify(vote)}
+    )
+    .then(response => response.json())
+    .then(data => {
+      this.setState({
+        karma: data["karma"],
+        upvote: data["upvote"],
+        downvote: data["downvote"]
+      })
     })
   }
 
@@ -77,6 +200,16 @@ class PostShowContainer extends React.Component {
       errors = <FormErrors formErrors={this.state.errors}/>
     }
 
+    let commentForm = "Sign in or sign up to leave a comment"
+    if(this.state.current_user.id){
+      commentForm =
+      <CommentFormContainer
+        addNewComment={this.addNewComment}
+        current_user={this.state.current_user}
+        post_id={this.props.params.id}
+      />
+    }
+
     let commentIndex;
     if(this.state.comments.length > 0){
       commentIndex =
@@ -84,6 +217,28 @@ class PostShowContainer extends React.Component {
         comments={this.state.comments}
       />
     }
+
+    let vote;
+    if(this.state.current_user.id) {
+      vote =
+      <div style={{paddingLeft:'12.5%'}}>
+        <button
+          id="Upvote"
+          disabled={this.state.disabledUpvote}
+          onClick={this.handleUpvoteClicked}
+          >Upvote ({this.state.upvote})</button>
+        <button
+          id="Downvote"
+          disabled={this.state.disabledDownvote}
+          onClick={this.handleDownvoteClicked}
+          >Downvote ({this.state.downvote})</button>
+        <button
+          id="Clear"
+          onClick={this.handleClearClicked}
+          >Clear Vote</button>
+      </div>
+    }
+
     return(
       <div>
         <div id="intro">
@@ -97,15 +252,13 @@ class PostShowContainer extends React.Component {
           <p>
             made by {this.state.post_user.handle} on {Date(this.props.created_at).toString().substring(3,15)}
           </p>
+          <span>Score: {this.state.karma}</span>
         </div>
+        {vote}
         <hr/>
         <div style={{paddingLeft:'25%'}}>
           {errors}
-          <CommentFormContainer
-            addNewComment={this.addNewComment}
-            current_user={this.state.current_user}
-            post_id={this.props.params.id}
-          />
+          {commentForm}
         </div>
           {commentIndex}
       </div>

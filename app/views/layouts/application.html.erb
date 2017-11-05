@@ -23,15 +23,15 @@
 
     <div>
       <% if current_user.nil? %>
-        <%= form_for(:session, url: root_path, html: { style: 'width: 20%;' }) do |f| %>
+        <%= form_for(:session, url: root_path, html: { style: 'width: 20%' }) do |f| %>
 
         <%= f.label :email_or_username, "Email or Username" %>
-        <%= f.text_field :login, style: 'float: left;' %>
+        <%= f.text_field :login, html: { style: 'display: inline; float: left' } %>
 
         <%= f.label :password %>
-        <%= f.password_field :password, class: "authentication" %>
+        <%= f.password_field :password, html: { style: 'display: inline; float: left' } %>
 
-        <%= f.submit "Log in", style: 'float: right;' %>
+        <%= f.submit "Log in", html: { style: 'float: left' } %>
         <% end %>
       <% end %>
     </div>

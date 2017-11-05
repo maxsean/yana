@@ -73,6 +73,20 @@ class ForumShowContainer extends React.Component {
       errors = <FormErrors formErrors={this.state.errors}/>
     }
 
+    let postForm =
+      <div style={{paddingLeft: '20%'}}>
+        Sign in or sign up to make a post
+        <br/>
+        <br/>
+      </div>
+    if(this.state.current_user.id) {
+      postForm =
+      <PostFormContainer
+        addNewPost={this.addNewPost}
+        current_user={this.state.current_user}
+        forum_id={this.props.params.id}
+      />
+    }
     let postIndex;
     if(this.state.posts.length > 0){
       postIndex =
@@ -95,11 +109,7 @@ class ForumShowContainer extends React.Component {
         <hr/>
         <div style={{paddingLeft:'25%'}}>
           {errors}
-          <PostFormContainer
-            addNewPost={this.addNewPost}
-            current_user={this.state.current_user}
-            forum_id={this.props.params.id}
-          />
+          {postForm}
         </div>
           {postIndex}
       </div>
