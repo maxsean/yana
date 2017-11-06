@@ -6,5 +6,6 @@ RSpec.describe Question, type: :model do
 
   it {should belong_to(:survey)}
   it {should have_many(:choices)}
+  it {should have_many(:submissions)}
   it {should_not belong_to(:user)}
 end

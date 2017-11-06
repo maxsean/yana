@@ -8,7 +8,8 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body class="body">
+  <body class="body">    
+
     <div class="flash">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>

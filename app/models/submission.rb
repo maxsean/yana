@@ -1,6 +1,7 @@
 class Submission < ApplicationRecord
   belongs_to :user
-  belongs_to :choice
+  belongs_to :question
 
-  validates :user_id, uniqueness: { scope: :choice_id }
+  validates :user_id, uniqueness: { scope: :question_id }
+  validates :answer, presence: true, numericality: true
 end

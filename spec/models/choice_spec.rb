@@ -5,6 +5,4 @@ RSpec.describe Choice, type: :model do
   it {should_not have_valid(:body).when(nil, '')}
 
   it {should belong_to(:question)}
-  it {should have_many(:submissions)}
-  it {should have_many(:users).through(:submissions)}
 end

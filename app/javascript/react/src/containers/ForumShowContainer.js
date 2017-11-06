@@ -56,7 +56,7 @@ class ForumShowContainer extends React.Component {
     .then(response => { return response.json() })
     .then(data => {
       if (data.error) {
-        this.setState({ errors: data.error })
+        this.setState({ errors: data.message })
     } else {
       let posts = JSON.parse(data.posts)
         this.setState({

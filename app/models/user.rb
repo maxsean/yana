@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :diagnoses
   has_many :illnesses, through: :diagnoses
   has_many :submissions
-  has_many :choices, through: :submissions
+  has_many :questions, through: :submissions
 
   validates_format_of :email, with: EMAIL_REGEXP
   validates_format_of :handle, with: HANDLE_REGEXP

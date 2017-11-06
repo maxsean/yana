@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
   it {should have_many(:posts)}
   it {should have_many(:comments)}
   it {should have_many(:submissions)}
-  it {should have_many(:choices).through(:submissions)}
+  it {should have_many(:questions).through(:submissions)}
   it {should have_many(:diagnoses)}
   it {should have_many(:illnesses).through(:diagnoses)}
 end

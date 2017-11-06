@@ -89,12 +89,13 @@ ActiveRecord::Schema.define(version: 20171105210853) do
   end
 
   create_table "submissions", force: :cascade do |t|
-    t.bigint "choice_id"
+    t.bigint "question_id"
     t.bigint "user_id"
+    t.integer "answer", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["choice_id"], name: "index_submissions_on_choice_id"
-    t.index ["user_id", "choice_id"], name: "index_submissions_on_user_id_and_choice_id", unique: true
+    t.index ["question_id"], name: "index_submissions_on_question_id"
+    t.index ["user_id", "question_id"], name: "index_submissions_on_user_id_and_question_id", unique: true
     t.index ["user_id"], name: "index_submissions_on_user_id"
   end
 
