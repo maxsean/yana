@@ -12,6 +12,8 @@ import IllnessIndexContainer from './containers/IllnessIndexContainer';
 import IllnessShowContainer from './containers/IllnessShowContainer';
 import ForumShowContainer from './containers/ForumShowContainer';
 import PostShowContainer from './containers/PostShowContainer';
+import SurveyIndexContainer from './containers/SurveyIndexContainer';
+import SurveyShowContainer from './containers/SurveyShowContainer';
 
 const App = (props) => {
   return(
@@ -29,6 +31,8 @@ const App = (props) => {
           <Route path='/illnesses/:id' component={IllnessShowContainer}/>
           <Route path='/forums/:id' component={ForumShowContainer}/>
           <Route path='/posts/:id' component={PostShowContainer}/>
+          <Route path='/surveys' component={SurveyIndexContainer}/>
+          <Route path='/surveys/:id' component={SurveyShowContainer}/>
         </Route>
       </Router>
     </div>
