@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     end
     if user && user.authenticate(params[:session][:password])
       # if user.confirmed?
-        flash[:success] = "Signed in as #{user.handle}."
+        # flash[:success] = "Signed in as #{user.handle}."
         sign_in(user)
         params[:session][:remember_me] == "1" ? remember(user) : forget(user)
         redirect_to post_auth_path

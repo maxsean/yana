@@ -19,7 +19,8 @@ const QuestionTile = (props) => {
 
   return(
     <div id="tile">
-      <label> {props.label}
+      <label style={{fontSize:"20px"}}> {props.label}
+        <br />
         <br />
         {choices}
       </label>

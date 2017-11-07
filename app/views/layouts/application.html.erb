@@ -2,13 +2,81 @@
 <html>
   <head>
     <title>YANA</title>
-    <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet"/>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+
   </head>
 
-  <body class="body">    
+  <body class="body">
+
+    <nav class="top-bar">
+         <ul class="title-area">
+           <!-- Title Area -->
+           <li class="name">
+             <h1><a href="/">YANA </a></h1>
+           </li>
+         </ul>
+
+         <section class="top-bar-section">
+           <!-- Left Nav Section -->
+           <ul class="left">
+             <li class="divider"></li>
+             <li class="has-dropdown"><a href="#" data-dropdown="drop1">Explore</a></li>
+              <ul class="f-dropdown small" id="drop1">
+                <li>
+                  <a href="/illnesses">Illnesses</a>
+                </li>
+                <li>
+                  <a href="/surveys">Surveys</a>
+                </li>
+                <li>
+                  <a href="/charts">Charts</a>
+                </li>
+              </ul>
+             <li class="divider"></li>
+               <% if user_signed_in? %>
+                <li class="active">
+                  <%= link_to 'Sign Out', root_path, method: :delete %>
+                </li>
+                <li class="divider"></li>
+                <ul class="title-area">
+                  <li class="name">
+                    <h1><a>Welcome <%= current_user.handle %><a></h1>
+                  </li>
+                </ul>
+               <% end %>
+             <% if current_user.nil? %>
+               <li class="active"><a href="/signup">Sign Up</a></li>
+               <li class="divider"></li>
+                 <li class="has-form" style="display: inline-block;">
+                   <form action="/" accept-charset="UTF-8" method="post">
+                     <input name="utf8" type="hidden" value="&#x2713;"/>
+                     <input type="hidden" name="authenticity_token" value="jpEFiM8bGRIOoba676f99my5ReSeN3h3uQfvKfRb2Tn+2+uYiVcMTU3h4I/Y/ZfD0SBVCHwLTuC+QBO/Ch/8Lg==">
+                     <div style="display: inline-block;">
+                       <input type="text" name="session[login]" id="session_login" placeholder="Email or Username"/>
+                     </div>
+                     <div style="display: inline-block;">
+                       <input type="password" name="session[password]" id="session_password" placeholder="Password"/>
+                     </div>
+                     <div style="display: inline-block;">
+                       <input type="submit" name="commit" value="Sign in" data-disable-with="Sign in" style="background-color: #078DB8; color: white; border-color: #078DB8;">
+                     </div>
+                  </form>
+                 </li>
+              <% end %>
+           </ul>
+
+           <!-- Right Nav Section -->
+           <ul class="right">
+             <li class="divider show-for-small">
+             </li>
+           </ul>
+         </section>
+       </nav>
 
     <div class="flash">
       <% flash.each do |message_type, message| %>
@@ -16,26 +84,8 @@
       <% end %>
     </div>
 
-    <div>
-      <% if user_signed_in? %>
-        <%= link_to 'Sign Out', root_path, method: :delete %>
-      <% end %>
-    </div>
 
-    <div>
-      <% if current_user.nil? %>
-        <%= form_for(:session, url: root_path, html: { style: 'width: 20%' }) do |f| %>
 
-        <%= f.label :email_or_username, "Email or Username" %>
-        <%= f.text_field :login, html: { style: 'display: inline; float: left' } %>
-
-        <%= f.label :password %>
-        <%= f.password_field :password, html: { style: 'display: inline; float: left' } %>
-
-        <%= f.submit "Log in", html: { style: 'float: left' } %>
-        <% end %>
-      <% end %>
-    </div>
     <script src="//d3js.org/d3.v3.min.js"></script>
 
     <%= yield %>

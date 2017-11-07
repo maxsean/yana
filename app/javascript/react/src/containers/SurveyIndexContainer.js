@@ -37,6 +37,11 @@ class SurveyIndexContainer extends React.Component {
     }
     return(
       <div>
+        <div id="intro">
+          <h1>
+            Surveys
+          </h1>
+        </div>
         <div id="index">
           {surveys}
         </div>

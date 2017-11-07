@@ -6,7 +6,6 @@ const NavBar = props => {
   return(
     <div>
       <div className="navBar">
-        <Link to='/' className="home"> YANA </Link>
         <Link to='/illnesses'> Explore </Link>
         <Link to='/surveys'> Surveys </Link>
         <div id="BackButton">

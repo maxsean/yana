@@ -1,3 +1,6 @@
+* {
+  font-family: 'Oxygen', sans-serif;
+}
 
 #intro {
   margin-left: 7.5%;
@@ -14,7 +17,7 @@
 }
 
 #index {
-  height: 350px;
+  height: 500px;
   overflow-y: scroll;
 }
 

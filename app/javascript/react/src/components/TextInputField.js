@@ -2,9 +2,8 @@ import React from 'react';
 
 const TextInputField = props => {
   return(
-    <label onChange={props.handleChange}>{props.label}
-    <input
-      placeholder={props.placeholder}
+    <label style={{fontSize:"16px"}} onChange={props.handleChange}>{props.label}
+    <input style={{width: "100%", height: "24px"}}
       id={props.name}
       name={props.name}
       type={props.type}

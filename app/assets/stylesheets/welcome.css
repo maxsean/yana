@@ -22,13 +22,41 @@
   color: #354965;
 }
 
+.welcomeImage {
+  background-image: url("crowd.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  box-shadow: 25px 25px 50px 0 white inset, -25px -25px 50px 0 white inset;
+  width: 800px;
+  height: 200px;
+  margin-bottom: 50px;
+  margin-left: 10%;
+  margin-right: 12.5%;
+  padding-left: 15%;
+  padding-right: 15%;
+
+  text-align: center;
+}
+
+.welcomeImage h1 {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 72px;
+  font-weight: bold;
+}
+
+.welcomeImage h2 {
+  font-family: 'Oxygen', sans-serif;
+  color: white
+}
+
+
 #hiddenSpace {
   background-color: #000;
   display: inline;
 }
 
 .welcomeQuote {
-  margin-bottom: 100px ;
+  margin-bottom: 100px;
   padding-left: 15%;
   padding-right: 15%;
 }
@@ -44,33 +72,6 @@
   bottom: 20px;
   border-radius: 25px;
   transition: all 1s ease;
-}
-
-#welcomeLeft:hover {
-  width: 45%;
-  background-color: #FFF;
-}
-
-#welcomeRight {
-  float: right;
-  background: rgba(255, 255, 255, 0.5);
-  display: inline;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  position: relative;
-  bottom: 20px;
-  border-radius: 25px;
-  transition: all 1s ease;
-}
-
-#welcomeRight:hover {
-  width: 45%;
-  background-color: #FFF;
-}
-
-.link {
-  color: #000;
 }
 
 blockquote{
