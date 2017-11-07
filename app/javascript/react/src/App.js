@@ -19,7 +19,7 @@ const App = (props) => {
   return(
     <div>
       <Router history={browserHistory}>
-        <Route path='/' component={NavBar}>
+        <Route path='/'>
           <IndexRoute component={WelcomeContainer} />
           <Route path='/signup' component={SignUpFormContainer}/>
           <Route path='/about' component={AboutContainer}/>

@@ -20,8 +20,15 @@ class ForumIndexContainer extends React.Component{
       )
     })
     return(
-      <div id="index">
-        {forums}
+      <div>
+        <div id="intro">
+          <h2>
+            Forums
+          </h2>
+        </div>
+        <div id="index">
+          {forums}
+        </div>
       </div>
     )
   }
