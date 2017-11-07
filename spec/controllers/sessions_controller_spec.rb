@@ -11,7 +11,6 @@ RSpec.describe SessionsController, type: :controller do
 
       post :create, params: post_json
 
-      expect(flash[:success]).to eq "Signed in as iamatest."
       expect(response.status).to eq 302
     end
     it "should not log valid user in and redirect" do
