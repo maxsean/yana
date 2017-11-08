@@ -9,4 +9,5 @@ class Api::V1::SurveysController < Api::V1::ApiController
 
     render json: survery
   end
+
 end

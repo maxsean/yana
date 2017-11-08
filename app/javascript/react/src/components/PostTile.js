@@ -45,13 +45,13 @@ class PostTile extends React.Component {
           <Link to={`/posts/${id}`}> {this.props.title} </Link>
         </div>
         <div className="small-12">
-          {this.props.body}
+          <p>{this.props.body}</p>
         </div>
         <div className="small-12">
           Made by {this.props.user.handle} on {Date(created_at).toString().substring(3,15)}
         </div>
         <div>
-          Score: {this.state.karma}
+          <p>Score: {this.state.karma}</p>
         </div>
         <hr/>
       </div>

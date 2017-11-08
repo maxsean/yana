@@ -20,11 +20,21 @@
     word-wrap: break-word;
   }
 
+  svg {
+    display: block;
+    margin: auto;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
 </style>
 
-<h1>This needs fixing, I know!</h1>
-
-<div class="d3chart">
+<div style="background-color: rgba(255, 255, 255, 0.5); margin: 0 20%">
+  <h3>Click section to explore. Click center to zoom out. Hover for counts</h3>
+</div>
+<div class="d3chart" style="padding: 0 5%">
 <script>
 var margin = {top: 350, right: 480, bottom: 350, left: 480},
     radius = Math.min(margin.top, margin.right, margin.bottom, margin.left) - 10;
@@ -67,8 +77,8 @@ function format_number(x) {
 }
 
 function format_description(d) {
-  var description = d.description;
-      return d.description + '<br> (' + format_number(d.value) + ')';
+  var description = d.name;
+      return d.name + '<br> (' + format_number(d.value/750) + ')';
 }
 
 function computeTextRotation(d) {
@@ -98,7 +108,7 @@ function mouseMoveArc (d) {
 
 var root_ = null;
 
-d3.json("flare.json", function(error, root) {
+d3.json('/api/v1/charts', function(error, root) {
   if (error) return console.warn(error);
   // Compute the initial layout on the entire tree to sum sizes.
   // Also compute the full name and fill color for each node,

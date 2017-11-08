@@ -6,7 +6,7 @@ const CommentTile = (props) => {
   return(
     <div className="grid-x" id="tile">
       <div className="small-12">
-        {body}
+        <p>{body}</p>
       </div>
       <div className="small-12">
         Made by {props.user.handle} on {Date(created_at).toString().substring(3,15)}
