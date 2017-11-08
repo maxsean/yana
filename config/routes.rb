@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :post_votes, only: [:create, :update]
       resources :surveys, only: [:index, :show]
       resources :submissions, only: [:create]
+      resources :charts, only: [:index]
     end
   end
 

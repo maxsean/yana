@@ -3,23 +3,24 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  color: #354965;
+  color: #333333;
 }
 
 .body h1 {
-  color: #354965;
+  color: #333333;
 }
 
 .body h2 {
-  color: #354965;
+  color: #333333;
 }
 
 .body h3 {
-  color: #354965;
+  color: #333333;
 }
 
 .body p {
-  color: #354965;
+  font-size: 20px;
+  color: #333333;
 }
 
 .welcomeImage {

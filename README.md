@@ -35,7 +35,9 @@ fix d3 chart thing
 
 consider survey maker
 
-change splash page
+change splash page (blue hue around image?)
+
+comment section hard to read
 
 Hello, my name is Sean Ma and prior to enrolling in Launch Academy I was a biomedical scientist. For three years I worked for a start-up that developed medical image analysis software. My role was to read MRI and CT scans, coordinate clinical studies, and demonstrate software to clinicians. I especially enjoyed working with the company's software developers and being amazed by how efficient they could handle data and analyses. This got me interested in learning more about code, so much so that I decided put my biomedical career on hold to learn these skills.
 My experience in the biomedical field revealed a need for people with clinical knowledge and web development skills to build better applications for anyone involved or interested in the medical field. That is why I decided to build YANA, an online forum for people with chronic illnesses such as diabetes, COPD, heart failure, dementia, and depression.
