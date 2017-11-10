@@ -1,6 +1,6 @@
 class Api::V1::SurveysController < Api::V1::ApiController
   def index
-    surveys = Survey.all
+    surveys = Survey.all.order('title')
     render json: surveys
   end
 
