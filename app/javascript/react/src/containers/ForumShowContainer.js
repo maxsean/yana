@@ -83,9 +83,8 @@ class ForumShowContainer extends React.Component {
     }
 
     let postForm =
-      <div style={{paddingLeft: '20%'}}>
-        Sign in or sign up to make a post
-        <br/>
+      <div style={{paddingLeft: "12.5%"}}>
+        <h3 style={{color: "#800000"}}>Sign in or sign up to make a post</h3>
         <br/>
       </div>
     if(this.state.current_user.id) {

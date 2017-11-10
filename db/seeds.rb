@@ -12,6 +12,12 @@ illness4 = Illness.create(name: "Dementia", description: "A set of symptoms that
 
 illness5 = Illness.create(name: "Depression", description: "A mood disorder that causes a persistent feeling of sadness and loss of interest", infourl: "https://www.nimh.nih.gov/health/topics/depression/index.shtml", trialurl: "https://clinicaltrials.gov/ct2/results?cond=depression&term=&cntry1=&state1=&Search=Search&recrs=a")
 
+illness6 = Illness.create(name: "Celiac Disease", description: "An autoimmune disorder where the ingestion of gluten leads to damage in the small intestine", infourl: "https://celiac.org/celiac-disease/understanding-celiac-disease-2/what-is-celiac-disease/", trialurl: "https://clinicaltrials.gov/ct2/results?cond=Celiac+Disease&Search=Apply&recrs=a&age_v=&gndr=&type=&rslt=")
+
+illness7 = Illness.create(name: "Cystic Fibrosis", description: "A progressive, genetic disease that causes persistent lung infections and limits the ability to breathe over", infourl: "https://www.cff.org/What-is-CF/About-Cystic-Fibrosis/", trialurl: "https://clinicaltrials.gov/ct2/results?cond=Cystic+Fibrosis&term=&cntry1=&state1=&Search=Search&recrs=a")
+
+illness8 = Illness.create(name: "Psoriasis", description: "An immune-mediated disease that causes raised, red, scaly patches to appear on the skin", infourl: "https://www.psoriasis.org/about-psoriasis", trialurl: "https://clinicaltrials.gov/ct2/results?cond=Psoriasis&term=&cntry1=&state1=&Search=Search&recrs=a")
+
 forum1 = Forum.create(name: "Diabetes Community", description: "A safe environment to share stories, ask for help, and learn about diabetes.", illness: illness1 )
 
 forum2 = Forum.create(name: "COPD Community", description: "A safe environment to share stories, ask for help, and learn about chronic obstructive pulmonary disease.", illness: illness2 )
@@ -22,13 +28,55 @@ forum4 = Forum.create(name: "Dementia Community", description: "A safe environme
 
 forum5 = Forum.create(name: "Clinical Depression Community", description: "A safe environment to share stories, ask for help, and learn about depression.", illness: illness5 )
 
-post1 = Post.create(title: "I want to make a Post", body: "I made this post", forum: forum1, user: user1)
+forum6 = Forum.create(name: "Celiac Disease Community", description: "A safe environment to share stories, ask for help, and learn about celiac disease.", illness: illness6 )
 
-post2 = Post.create(title: "I also want to make a Post", body: "I made this post", forum: forum1, user: user2)
+forum7 = Forum.create(name: "Cystic Fibrosis Community", description: "A safe environment to share stories, ask for help, and learn about cystic fibrosis.", illness: illness7 )
 
-comment1 = Comment.create(body: "This is a post", user: user2, post: post1)
+forum8 = Forum.create(name: "Psoriasis Community", description: "A safe environment to share stories, ask for help, and learn about psoriasis.", illness: illness8 )
 
-comment1 = Comment.create(body: "This is also a post", user: user1, post: post2)
+post1 = Post.create(title: "Scary episode, question", body: "I'm not diabetic, nor have I been diagnosed with pre-diabetes. But, my morning blood sugar (I.e. Fasting BG) is almost always just above 100, usually 105-115, once in a while 120. I test myself (long story) but when my Dr tests and sees the 100+ reading, he does an A1C. It's always below 5, last reading was a month ago at 4.7 and in fact when I test late afternoon, unless I've had a high carb lunch which I almost never do, it's between 75-88.
+
+I also have a history of high triglycerides, as high as 750, once, but in the 300's for a long time. I got it under control using weight watchers then the Wheat belly diet (low carb, no grains) got it as low as 85. But lately TG is back above 200.
+I also have atherosclerosis with 2 stents.
+So Ive been try to get back to low carb. However the last 10 days has been really hard, with business dinners every night, and family get together.
+
+Last night was bad. I had dinner out, had a lot of bread, then shrimp, but with a baked potato, a martini, and a big piece of chocolate fudge cake. Came home, had a half a bagel with butter, and went to sleep. I know, disgusting.
+
+So I woke up this morning at 4AM, with heartburn, and a sudden unexplained tenderness in my big toe (not gout, its not in the joint, more in the corner by the toenail). My heart rate (I wear a Fitbit) was in the high 70's it's usually in the low 50's when I wake ,(I'm on a beta blocker)
+So I took my blood glucose - 205!!!.
+Took it again thought it was an error, 188. Then Half hour later, 175. Crazy, never saw that before. Made me nervous,
+
+Got back to sleep, woke at 7am. Another reading, 203!!. Nothing wrong with the meter or strips, because I tried another meter and got similar readings,
+
+Got up, brushed my teeth, washed up. Took it again. 160. And again 2- minutes later, 164.
+I haven't eaten since 10:30 last night.
+
+I'm curious to get some thoughts,
+Prior to today, I haven't measured BG in about a week, but as I said, in the past, it's always low 100's first thing in the morning.
+
+I'm very nervous about this.", post_type: "help", forum: forum1, user: user1)
+
+post2 = Post.create(title: "Gary Taubes article: What If It's All Been a Big Fat Lie?", body: "This was originally published in the New York Times Sunday Magazine in 2002. Have you ever noticed that people in photographs back before the 1950's were a lot thinner than many people in general today? Read this.
+
+www.nytimes.com/2002/07/07/magazine/what-if-it-s-all-been-a-big-fat-lie.html?_r=0", post_type: "news", forum: forum1, user: user2)
+
+comment1 = Comment.create(body: "Good morning and welcome! Sorry about these high blood sugar readings this morning. I think they're most certainly because of the meal you had last night. And from what you described, it had a lot of carbs.
+
+But your A1c is totally normal. Since it's an average test result, it would cancel out the morning fasting of over 100 IF your blood sugar is totally normal the rest of the day. I think what you're eating reflects that. What you usually eat, that is. Last night was an exception.
+
+This morning's readings would have me think you are not metabolizing carbs efficiently. You can call it pre-diabetes or diabetes because of the high readings but you need further testing, I think. What you did last night was effectively give yourself a glucose tolerance test. This is the test when you drink a very sugary liquid and they test your blood over one or two hours. It's called the GTT and 'maybe' your doctor should order it to see if you do have a blood sugar problem.
+
+I don't know about the toe. If it's not gout, could it be an ingrown toenail? Are your toes swollen?
+
+Also, keep in mind that some medications, illness and stress can raise blood sugar in any case. However from what you ate last night, it seems like a carb overload and then you went to bed. You were not active as you are during the day to help control the blood sugar, so the blood sugar is not used up overnight and you see the results in the morning. It could be a fluke because of the food and then bed.
+
+You should mention this to your doctor though especially if the toe keeps bothering you. I hope you see better numbers today!", user: user2, post: post1)
+
+comment2 = Comment.create(body: "Just skimmed the article, it's quite long!
+
+But I agree, protein, fruits & veggies are the way to go!!
+
+And it's hell fighting your way back to that if you've managed to trigger metabolic syndrome like I have. Ugh.", user: user1, post: post2)
 
 survey1 = Survey.create(title: "Demographics", description: "User demographic information")
 
