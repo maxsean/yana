@@ -118,7 +118,6 @@ class ForumShowContainer extends React.Component {
             {this.state.forum.description}
           </h3>
         </div>
-        <hr/>
         <div style={{paddingLeft:'25%'}}>
           {errors}
           {postForm}

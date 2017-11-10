@@ -2,9 +2,9 @@ user1 = User.create(handle: "testuser", email: "test@user.com", password: "12345
 
 user2 = User.create(handle: "fakeuser", email: "fake@user.com", password: "123456", password_confirmation: "123456")
 
-illness1 = Illness.create(name: "Diabetes", description: "a disease that affects your body's ability to produce or use insulin.", infourl: "http://www.diabetes.org/", trialurl: "https://clinicaltrials.gov/ct2/results?cond=diabetes&recrs=a&age_v=&gndr=&type=&rslt=&Search=Apply")
+illness1 = Illness.create(name: "Diabetes", description: "A disease that affects your body's ability to produce or use insulin.", infourl: "http://www.diabetes.org/", trialurl: "https://clinicaltrials.gov/ct2/results?cond=diabetes&recrs=a&age_v=&gndr=&type=&rslt=&Search=Apply")
 
-illness2 = Illness.create(name: "Chronic Obstructive Pulmonary Disease", description: "a lung disease characterized by chronic obstruction of lung airflow that interferes with normal breathing and is not fully reversible.", infourl: "https://www.copdfoundation.org/What-is-COPD/Understanding-COPD/What-is-COPD.aspx", trialurl: "https://clinicaltrials.gov/ct2/results?cond=copd&term=&cntry1=&state1=&Search=Search&recrs=a" )
+illness2 = Illness.create(name: "Chronic Obstructive Pulmonary Disease", description: "A lung disease characterized by chronic obstruction of lung airflow that interferes with normal breathing and is not fully reversible.", infourl: "https://www.copdfoundation.org/What-is-COPD/Understanding-COPD/What-is-COPD.aspx", trialurl: "https://clinicaltrials.gov/ct2/results?cond=copd&term=&cntry1=&state1=&Search=Search&recrs=a" )
 
 illness3 = Illness.create(name: "Heart Failure", description: "A disorder where your heart muscle doesn't pump blood as well as it should.", infourl: "http://www.heart.org/HEARTORG/Conditions/HeartFailure/Heart-Failure_UCM_002019_SubHomePage.jsp", trialurl: "https://clinicaltrials.gov/ct2/results?cond=heart+failure&term=&cntry1=&state1=&Search=Search&recrs=a")
 

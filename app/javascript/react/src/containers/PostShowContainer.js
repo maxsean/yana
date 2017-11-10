@@ -258,12 +258,12 @@ class PostShowContainer extends React.Component {
             {vote}
           </div>
         </div>
-        <hr/>
+        <br/>
         <div style={{paddingLeft:'25%'}}>
           {errors}
           {commentForm}
         </div>
-        <hr/>
+        <br/>
           {commentIndex}
       </div>
     )

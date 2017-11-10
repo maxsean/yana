@@ -8,7 +8,7 @@ class QuestionIndexContainer extends React.Component {
     this.state = {
       payload: {},
       checked: {},
-      submitted: true
+      submitted: false
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
