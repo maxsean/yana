@@ -15,6 +15,7 @@ gem 'jquery-rails'
 gem "recaptcha", require: "recaptcha/rails"
 gem "oauth2"
 gem 'foundation-rails'
+gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
 
 group :development do
   gem 'listen', '~> 3.0.5'
@@ -31,7 +32,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda'
   gem 'valid_attribute'
-  gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
 end
 
 group :test do
