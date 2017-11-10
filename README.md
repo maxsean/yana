@@ -34,6 +34,8 @@ yarn install
 ```
 Then navigate to `localhost:3000`.
 
+If you want to demo the product without signing up, you may use the username: "testuser" with password: "123456".
+
 For Capybara tests run `rake`
 and for Jasmine-Enzyme tests run `karma start`.
 
