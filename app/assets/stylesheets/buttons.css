@@ -1,0 +1,57 @@
+.button-group {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20%;
+}
+
+.button-group button {
+  background-color: #333333;
+  box-shadow: 3px 5px 6px -2px rgba(0,0,0,0.66);
+  color: white;
+}
+
+button link {
+  color: white;
+}
+
+button link:hover {
+  color: white
+}
+
+button a {
+  color: white;
+}
+
+button a:hover {
+  color: white;
+}
+
+
+.button-group input {
+  background-color: #00B200;
+  box-shadow: 3px 5px 6px -2px rgba(0,0,0,0.66);
+  color: white;
+}
+
+.button-group button:hover {
+  background-color: #007F00;
+}
+
+.button-group input:hover {
+  background-color: #007F00;
+}
+
+.vote-group {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.vote-group button {
+  background-color: #333333
+}
+
+.vote-group img {
+  height: 23px;
+  width: 23px;
+}

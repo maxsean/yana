@@ -39,19 +39,35 @@ class PostTile extends React.Component {
   render(){
     let id = this.props.id
     let created_at = this.props.created_at
+
+    let buttons;
+    if(this.props.current_user.id == this.props.user.id){
+      buttons =
+      <div style={{float: "left"}}>
+        <button style={{backgroundColor: "#00B200", marginRight: "10px"}}>
+          Edit
+        </button>
+        <button style={{backgroundColor: "#333333"}} onClick={this.props.handleDelete}>
+          Delete
+        </button>
+      </div>
+    }
+
     return(
       <div className="grid-x" id="tile">
-        <div className="small-12" id="link">
-          <Link to={`/posts/${id}`}> {this.props.title} </Link>
+        <div className="small-4" id={this.props.post_type}>
         </div>
-        <div className="small-12">
-          <p>{this.props.body}</p>
-        </div>
-        <div className="small-12">
-          Made by {this.props.user.handle} on {Date(created_at).toString().substring(3,15)}
-        </div>
-        <div>
-          <p>Score: {this.state.karma}</p>
+        <div className="small-8" id="tileInfo">
+          <div id="link">
+            <Link to={`/posts/${id}`}> {this.props.title} </Link>
+          </div>
+          <div>
+            Made by {this.props.user.handle} on {Date(created_at).toString().substring(3,15)}
+            <span>
+              <p>Karma: {this.state.karma} | Comments: {this.props.comments.length}</p>
+            </span>
+            {buttons}
+          </div>
         </div>
         <hr/>
       </div>

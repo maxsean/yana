@@ -193,14 +193,14 @@ class PostShowContainer extends React.Component {
     })
   }
 
-
   render(){
     let errors;
-    if(this.state.errors != {}){
+    if(this.state.errors.body){
       errors = <FormErrors formErrors={this.state.errors}/>
     }
 
-    let commentForm = "Sign in or sign up to leave a comment"
+    let commentForm =
+      <h3>Sign in or sign up to leave a comment</h3>
     if(this.state.current_user.id){
       commentForm =
       <CommentFormContainer
@@ -221,17 +221,17 @@ class PostShowContainer extends React.Component {
     let vote;
     if(this.state.current_user.id) {
       vote =
-      <div style={{paddingLeft:'12.5%'}}>
+      <div className="vote-group">
         <button
           id="Upvote"
           disabled={this.state.disabledUpvote}
           onClick={this.handleUpvoteClicked}
-          >Upvote ({this.state.upvote})</button>
+          ><img src="/assets/images/upvote.png"/>({this.state.upvote})</button>
         <button
           id="Downvote"
           disabled={this.state.disabledDownvote}
           onClick={this.handleDownvoteClicked}
-          >Downvote ({this.state.downvote})</button>
+          ><img src="/assets/images/downvote.png"/>({this.state.downvote})</button>
         <button
           id="Clear"
           onClick={this.handleClearClicked}
@@ -246,20 +246,24 @@ class PostShowContainer extends React.Component {
             {this.state.post.title}
           </h1>
           <hr/>
-          <h3>
-            {this.state.post.body}
-          </h3>
           <p>
-            made by {this.state.post_user.handle} on {Date(this.props.created_at).toString().substring(3,15)}
+            {this.state.post.body}
           </p>
-          <span>Score: {this.state.karma}</span>
+          <hr/>
+          <div>
+            <p>
+              Made by {this.state.post_user.handle} on {Date(this.props.created_at).toString().substring(3,15)}
+            </p>
+            <h2>Karma: {this.state.karma}</h2>
+            {vote}
+          </div>
         </div>
-        {vote}
-        <hr/>
+        <br/>
         <div style={{paddingLeft:'25%'}}>
           {errors}
           {commentForm}
         </div>
+        <br/>
           {commentIndex}
       </div>
     )

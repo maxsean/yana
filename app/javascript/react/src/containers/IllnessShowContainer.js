@@ -40,6 +40,14 @@ class IllnessShowContainer extends React.Component {
           <h3>
             {this.state.illness.description}
           </h3>
+          <hr/>
+          <p>
+            <a href={this.state.illness.infourl} target="_blank">Click here for more information about {this.state.illness.name}</a>
+          </p>
+          <hr/>
+          <p>
+            <a href={this.state.illness.trialurl} target="_blank">Click here for current clinical trials recruiting patients with {this.state.illness.name}</a>
+          </p>
         </div>
         <hr/>
         {forumIndex}

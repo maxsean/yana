@@ -56,7 +56,7 @@ class CommentFormContainer extends React.Component {
             handleChange={this.handleChange}
           />
         <div className='button-group'>
-          <input className='button' type='submit' value='Submit Post' />
+          <input className='button' type='submit' value='Submit Comment' />
         </div>
         </form>
       </div>
