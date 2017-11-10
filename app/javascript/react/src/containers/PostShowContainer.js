@@ -1,5 +1,4 @@
 import React from 'react';
-import BackButton from '../components/BackButton';
 import CommentIndexContainer from './CommentIndexContainer';
 import CommentFormContainer from './CommentFormContainer';
 import FormErrors from '../components/FormErrors'
@@ -23,6 +22,7 @@ class PostShowContainer extends React.Component {
     this.handleUpvoteClicked = this.handleUpvoteClicked.bind(this);
     this.handleDownvoteClicked = this.handleDownvoteClicked.bind(this);
     this.handleClearClicked = this.handleClearClicked.bind(this);
+    this.deleteComment = this.deleteComment.bind(this);
   }
 
   componentDidMount() {
@@ -193,6 +193,15 @@ class PostShowContainer extends React.Component {
     })
   }
 
+  deleteComment(id){
+    fetch(`/api/v1/comments/${id}`, {
+      method: 'DELETE'
+    })
+    .then(() => {
+      this.fetchPost()
+    })
+  }
+
   render(){
     let errors;
     if(this.state.errors.body){
@@ -215,6 +224,8 @@ class PostShowContainer extends React.Component {
       commentIndex =
       <CommentIndexContainer
         comments={this.state.comments}
+        current_user={this.state.current_user}
+        deleteComment={this.deleteComment}
       />
     }
 

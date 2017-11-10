@@ -1,5 +1,4 @@
 import React from 'react';
-import BackButton from '../components/BackButton';
 import PostIndexContainer from './PostIndexContainer';
 import PostFormContainer from './PostFormContainer';
 import FormErrors from '../components/FormErrors'

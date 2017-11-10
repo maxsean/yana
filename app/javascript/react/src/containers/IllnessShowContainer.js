@@ -1,6 +1,5 @@
 import React from 'react';
 import ForumIndexContainer from './ForumIndexContainer';
-import BackButton from '../components/BackButton'
 
 class IllnessShowContainer extends React.Component {
   constructor(props){
