@@ -10,6 +10,9 @@ An online forum for patients with chronic illnesses
 ## Introduction
 This project was created in two weeks by a single junior web developer. The goal was to provide a support service for chronically ill patients outside the hospital. Users can sign up to post on forums to share stories, ask for help, or bring attention to medical news. Users can also partake in surveys that capture demographic data. They can then explore their community's data with an interactive visualization.
 
+This app can be found on [heroku](https://yana-app.herokuapp.com).
+If you want to demo the product without signing up, you may use the username: "testuser" with password: "123456".
+
 ## Technologies
 * Ruby on Rails: back-end mainly used for API endpoints
 * React.js and React-Router: for quick and responsive user experience
