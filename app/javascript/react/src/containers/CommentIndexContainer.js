@@ -5,9 +5,18 @@ class CommentIndexContainer extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-
+      comments: {}
     }
   }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ comments: nextProps.comments })
+  }
+
+  handleDelete(id) {
+    this.props.deleteComment(id)
+  }
+
   render(){
     let comments = this.props.comments.map(comment => {
       return(
@@ -17,6 +26,8 @@ class CommentIndexContainer extends React.Component {
           body={comment.body}
           user={comment.user}
           created_at={comment.created_at}
+          current_user={this.props.current_user}
+          handleDelete={() => this.handleDelete(comment.id)}
         />
       )
     })

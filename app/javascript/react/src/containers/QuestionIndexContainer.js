@@ -72,14 +72,16 @@ class QuestionIndexContainer extends React.Component {
           <a href='/charts'> Go to Chart </a>
         </button>
       </div>
+    } else {
+      buttonLinks =
+      <div className='button-group'>
+        <input className='button' type='submit' value='Submit' />
+      </div>
     }
     return(
-      <div id="index">
+      <div id="index" style={{overflow: "scroll", height: "450px"}}>
         <form onSubmit={this.handleSubmit}>
           {questions}
-          <div className='button-group'>
-            <input className='button' type='submit' value='Submit' />
-          </div>
           {buttonLinks}
         </form>
       </div>
