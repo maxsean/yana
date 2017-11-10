@@ -4,45 +4,52 @@
 ![Code Climate](https://codeclimate.com/github/maxsean/yana.png)
 ![Coverage Status](https://coveralls.io/repos/maxsean/yana/badge.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# YANA
+An online forum for patients with chronic illnesses
 
-Things you may want to cover:
+## Introduction
+This project was created in two weeks by a single junior web developer. The goal was to provide a support service for chronically ill patients outside the hospital. Users can sign up to post on forums to share stories, ask for help, or bring attention to medical news. Users can also partake in surveys that capture demographic data. They can then explore their community's data with an interactive visualization.
 
-* Ruby version
+This app can be found on [heroku](https://yana-app.herokuapp.com).
+If you want to demo the product without signing up, you may use the username: "testuser" with password: "123456".
 
-* System dependencies
+## Technologies
+* Ruby on Rails: back-end mainly used for API endpoints
+* React.js and React-Router: for quick and responsive user experience
+* D3.js: visualization of submitted survey data
+* Capybara: testing Rails components and features
+* Jasmine-Enzyme: testing React components and features
 
-* Configuration
+## Setup
+In app directory, run:
+```
+bundle install
+rake db:create
+rake db:migrate
+rake db:seed
+rake db:test:prepare
+rails s
+```
+In a separate terminal tab, run:
+```
+yarn install
+./bin/webpack-dev-server
+```
+Then navigate to `localhost:3000`.
 
-* Database creation
+If you want to demo the product without signing up, you may use the username: "testuser" with password: "123456".
 
-* Database initialization
+For Capybara tests run `rake`
+and for Jasmine-Enzyme tests run `karma start`.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-39 sec intro
-
-2 min 2 sec
-
-fix d3 chart thing
-
-consider survey maker
-
-change splash page (blue hue around image?)
-
-comment section hard to read
-
-Hello, my name is Sean Ma and prior to enrolling in Launch Academy I was a biomedical scientist. For three years I worked for a start-up that developed medical image analysis software. My role was to read MRI and CT scans, coordinate clinical studies, and demonstrate software to clinicians. I especially enjoyed working with the company's software developers and being amazed by how efficient they could handle data and analyses. This got me interested in learning more about code, so much so that I decided put my biomedical career on hold to learn these skills.
-My experience in the biomedical field revealed a need for people with clinical knowledge and web development skills to build better applications for anyone involved or interested in the medical field. That is why I decided to build YANA, an online forum for people with chronic illnesses such as diabetes, COPD, heart failure, dementia, and depression.
-Once a user signs up, they may view essential information about chronic illnesses and post on the forums to share stories, ask for help, or bring attention to new clinical trials and medical breakthroughs. Users can also downvote or upvote posts and use the meetup feature. Since I'm a big fan of gathering data, I also made surveys to capture user demographics and community opinions on important topics. I wanted to make data look exciting, so I used the D3.js library to build interactive data visualizations, which hopefully will entice user to explore their community.
-One of my biggest challenges was creating a safe supportive anonymous environment without excluding anyone. I decided that users need to indicate if they are a patient, medical professional, or a friend or family member. Patients and medical professionals will go through a verification process, and friends or family members can only sign up if sponsored by a patient. Those who cannot sign in may still use YANA as a silent observer.
-I look forward to continue building my skills and working on projects like YANA. Thank you all for your time and feel free to ask me any question.
-
-*Say "I did this...I wanted this..."
+## ToDo
+* External API integration with ClinicalTrials.gov
+* External API integration with an open-source Health Information System (i.e. OpenMRS)
+* Search filters for posts
+* Search filters for submitted survey data
+* Edit functions for posts and comments
+* Robust user verification process to screen for patients, medical professionals, friends, and family members
+* Add moderator and administrator roles
+* Forum maker for administrators
+* Survey maker for moderators and administrators
+* Add badges for users to distinguish karma standing and role in community (patient, medical professional, friend, family)

@@ -1,6 +1,6 @@
 class Api::V1::IllnessesController < Api::V1::ApiController
   def index
-    illnesses = Illness.all
+    illnesses = Illness.all.order('name')
     render json: illnesses
   end
 

@@ -30,7 +30,7 @@ class WelcomeContainer extends Component {
     let buttons;
     if(this.state.current_user.id){
       buttons =
-      <div className='button-group'>
+      <div className='button-group' style={{padding: "0"}}>
         <button>
           <Link to='/illnesses'> Explore Illnesses </Link>
         </button>
@@ -50,9 +50,9 @@ class WelcomeContainer extends Component {
           <br />
           <br />
           <div className="welcomeImage">
-            <div className="small-4" id="logoImage">
+            <div className="cell small-4" id="logoImage">
             </div>
-            <div className="small-8">
+            <div className="cell small-8">
               <h1>YANA</h1>
               <h2>Share. Support. Learn</h2>
             </div>
