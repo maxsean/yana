@@ -4,6 +4,8 @@
     <title>YANA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Alice" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet"/>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -13,7 +15,7 @@
 
   <body class="body">
 
-    <nav class="top-bar">
+    <nav class="top-bar" style="position: fixed; width: 100%; z-index: 1">
          <ul class="title-area">
            <!-- Title Area -->
            <li class="name">
@@ -84,7 +86,9 @@
       <% end %>
     </div>
 
-
+    <br/>
+    <br/>
+    <br/>
 
     <script src="//d3js.org/d3.v3.min.js"></script>
 

@@ -14,6 +14,7 @@ class ForumShowContainer extends React.Component {
       errors: {}
     }
     this.addNewPost = this.addNewPost.bind(this)
+    this.deletePost = this.deletePost.bind(this)
   }
 
   componentDidMount() {
@@ -56,7 +57,7 @@ class ForumShowContainer extends React.Component {
     .then(response => { return response.json() })
     .then(data => {
       if (data.error) {
-        this.setState({ errors: data.message })
+        this.setState({ errors: data.error })
     } else {
       let posts = JSON.parse(data.posts)
         this.setState({
@@ -64,6 +65,15 @@ class ForumShowContainer extends React.Component {
           posts: posts
         })
       }
+    })
+  }
+
+  deletePost(id){
+    fetch(`/api/v1/posts/${id}`, {
+      method: 'DELETE'
+    })
+    .then(() => {
+      this.fetchForum()
     })
   }
 
@@ -93,6 +103,8 @@ class ForumShowContainer extends React.Component {
       <PostIndexContainer
         posts={this.state.posts}
         addNewPost={this.addNewPost}
+        current_user={this.state.current_user}
+        deletePost={this.deletePost}
       />
     }
     return(

@@ -2,25 +2,25 @@ user1 = User.create(handle: "testuser", email: "test@user.com", password: "12345
 
 user2 = User.create(handle: "fakeuser", email: "fake@user.com", password: "123456", password_confirmation: "123456")
 
-illness1 = Illness.create(name: "Diabetes", description: "a disease that affects your body's ability to produce or use insulin.")
+illness1 = Illness.create(name: "Diabetes", description: "a disease that affects your body's ability to produce or use insulin.", infourl: "http://www.diabetes.org/", trialurl: "https://clinicaltrials.gov/ct2/results?cond=diabetes&recrs=a&age_v=&gndr=&type=&rslt=&Search=Apply")
 
-illness2 = Illness.create(name: "Chronic Obstructive Pulmonary Disease", description: "a lung disease characterized by chronic obstruction of lung airflow that interferes with normal breathing and is not fully reversible." )
+illness2 = Illness.create(name: "Chronic Obstructive Pulmonary Disease", description: "a lung disease characterized by chronic obstruction of lung airflow that interferes with normal breathing and is not fully reversible.", infourl: "https://www.copdfoundation.org/What-is-COPD/Understanding-COPD/What-is-COPD.aspx", trialurl: "https://clinicaltrials.gov/ct2/results?cond=copd&term=&cntry1=&state1=&Search=Search&recrs=a" )
 
-illness3 = Illness.create(name: "Heart Failure", description: "a disorder where your heart muscle doesn't pump blood as well as it should.")
+illness3 = Illness.create(name: "Heart Failure", description: "A disorder where your heart muscle doesn't pump blood as well as it should.", infourl: "http://www.heart.org/HEARTORG/Conditions/HeartFailure/Heart-Failure_UCM_002019_SubHomePage.jsp", trialurl: "https://clinicaltrials.gov/ct2/results?cond=heart+failure&term=&cntry1=&state1=&Search=Search&recrs=a")
 
-illness4 = Illness.create(name: "Dementia", description: "a set of symptoms that may include memory loss and difficulties with thinking, problem-solving or language.")
+illness4 = Illness.create(name: "Dementia", description: "A set of symptoms that may include memory loss and difficulties with thinking, problem-solving or language.", infourl: "https://www.alz.org/what-is-dementia.asp", trialurl: "https://clinicaltrials.gov/ct2/results?cond=dementia&term=&cntry1=&state1=&Search=Search&recrs=a")
 
-illness5 = Illness.create(name: "Depression", description: "a mood disorder that causes a persistent feeling of sadness and loss of interest")
+illness5 = Illness.create(name: "Depression", description: "A mood disorder that causes a persistent feeling of sadness and loss of interest", infourl: "https://www.nimh.nih.gov/health/topics/depression/index.shtml", trialurl: "https://clinicaltrials.gov/ct2/results?cond=depression&term=&cntry1=&state1=&Search=Search&recrs=a")
 
-forum1 = Forum.create(name: "Diabetes Community", description: "a safe environment to share stories, ask for help, and learn about diabetes.", illness: illness1 )
+forum1 = Forum.create(name: "Diabetes Community", description: "A safe environment to share stories, ask for help, and learn about diabetes.", illness: illness1 )
 
-forum2 = Forum.create(name: "COPD Community", description: "a safe environment to share stories, ask for help, and learn about chronic obstructive pulmonary disease.", illness: illness2 )
+forum2 = Forum.create(name: "COPD Community", description: "A safe environment to share stories, ask for help, and learn about chronic obstructive pulmonary disease.", illness: illness2 )
 
-forum3 = Forum.create(name: "Heart Failure Community", description: "a safe environment to share stories, ask for help, and learn about heart failure.", illness: illness3 )
+forum3 = Forum.create(name: "Heart Failure Community", description: "A safe environment to share stories, ask for help, and learn about heart failure.", illness: illness3 )
 
-forum4 = Forum.create(name: "Dementia Community", description: "a safe environment to share stories, ask for help, and learn about dementia.", illness: illness4 )
+forum4 = Forum.create(name: "Dementia Community", description: "A safe environment to share stories, ask for help, and learn about dementia.", illness: illness4 )
 
-forum5 = Forum.create(name: "Clinical Depression Community", description: "a safe environment to share stories, ask for help, and learn about depression.", illness: illness5 )
+forum5 = Forum.create(name: "Clinical Depression Community", description: "A safe environment to share stories, ask for help, and learn about depression.", illness: illness5 )
 
 post1 = Post.create(title: "I want to make a Post", body: "I made this post", forum: forum1, user: user1)
 
@@ -30,7 +30,7 @@ comment1 = Comment.create(body: "This is a post", user: user2, post: post1)
 
 comment1 = Comment.create(body: "This is also a post", user: user1, post: post2)
 
-survey1 = Survey.create(title: "Demographics", description: "user demographic information")
+survey1 = Survey.create(title: "Demographics", description: "User demographic information")
 
 question1 = Question.create(survey: survey1, body: "What is your gender?", short: "Gender")
 choice1 = Choice.create(question: question1, body: "Female", short: "Female")
@@ -85,7 +85,7 @@ choice39 = Choice.create(question: question6, body: "Hispanic, Spanish, or Latin
 choice40 = Choice.create(question: question6, body: "From multiple races", short: "Multiple")
 choice41 = Choice.create(question: question6, body: "Other", short: "Other")
 
-survey2 = Survey.create(title: "Diet", description: "user eating habits and nutritional intake")
+survey2 = Survey.create(title: "Diet", description: "User eating habits and nutritional intake")
 
 question7 = Question.create(survey: survey2, body: "How would you describe your current eating habits?", short: "Perspective")
 choice42 = Choice.create(question: question7, body: "Very Unhealthy", short: "Very Unhealthy")
@@ -138,7 +138,7 @@ choice76 = Choice.create(question: question13, body: "Rarely", short: "Rarely")
 choice77 = Choice.create(question: question13, body: "Occasionally", short: "Occasionally")
 choice78 = Choice.create(question: question13, body: "Frequently", short: "Frequently")
 
-survey3 = Survey.create(title: "Exercise", description: "user physical activity")
+survey3 = Survey.create(title: "Exercise", description: "User physical activity")
 question14 = Question.create(survey: survey3, body: "How important is exercise to you?", short: "Importance")
 choice79 = Choice.create(question: question14, body: "Not important", short: "Not Important")
 choice80 = Choice.create(question: question14, body: "Somewhat important", short: "Somewhat Important")
@@ -167,7 +167,7 @@ choice96 = Choice.create(question: question17, body: "Between half an hour to an
 choice97 = Choice.create(question: question17, body: "Between an hour and two hours", short: "Up to Two Hours")
 choice98 = Choice.create(question: question17, body: "More than two hours", short: "> Two Hours")
 
-survey4 = Survey.create(title: "Hygiene", description: "user self-cleaning habits")
+survey4 = Survey.create(title: "Hygiene", description: "User self-cleaning habits")
 question18 = Question.create(survey: survey4, body: "In a typical day, about how many times do you wash your hands?", short: "Wash Hands")
 choice99 = Choice.create(question: question18, body: "0 times", short: "0 times daily")
 choice100 = Choice.create(question: question18, body: "1 to 3 times", short: "1-3 times daily")
@@ -196,7 +196,7 @@ choice116 = Choice.create(question: question21, body: "3 to 4 days", short: "3-4
 choice117 = Choice.create(question: question21, body: "5 to 6 days", short: "5-6 days weekly")
 choice118 = Choice.create(question: question21, body: "Every day", short: "Every Day")
 
-survey5 = Survey.create(title: "Insurance", description: "user health insurance status")
+survey5 = Survey.create(title: "Insurance", description: "User health insurance status")
 question22 = Question.create(survey: survey5, body: "Do you currently have health insurance, or not?", short: "Insurance?")
 choice119 = Choice.create(question: question22, body: "No, I do not", short: "No")
 choice120 = Choice.create(question: question22, body: "Yes, I do", short: "Yes")
@@ -230,6 +230,87 @@ while i < 100
   User.create!(handle: handle, email: email, password: "123456", password_confirmation: "123456")
   i += 1
 end
+
+post3 = Post.create(user_id: 24, forum: forum1, title: "Spherocytosis and diabetes?", post_type: "help", icon: "help.png", body: "Hi, visiting y'all on behalf of my dad.
+
+My dad has both spherocytosis and diabetes... I know it affects your sugar and he is unsuccessful in lowering his. Do any of you have both of these conditions? And how do you deal with them? Any tips?
+
+He formerly had a poor diet but has been making a better effort lately to eat healthy. Does his body maybe need time to adjust?
+
+My mom's getting worried about him. My uncle had both of these diseases as well and died just last year from complications. Most of the doctors didn't seem well versed in how they affect one another. I appreciate any help! I'm visiting him soon so if you need more info I should be able to get it. Also, he can't really exercise - bad arthritis, reconstructed ankle, and taking care of my disabled mom.
+
+Tips or resources much appreciated :)")
+
+comment3 = Comment.create(user_id: 12, post: post3, body: "I don't know the answers to your questions. I hadn't heard of this so I looked it up. I didn't see any relationship to diabetes but that might be from what was available to read online.
+
+Since it involves blood cells, I guess a hematologist would be the specialist to see if his regular doctor isn't familiar with this.
+
+From what I gathered, sometimes the spleen is removed depending on the case. Vitamin B supplements are also prescribed because anemia is a problem.
+
+As far as the diabetes goes, I would think that he should continue to eat food that will not raise his blood sugar (and you know that this is mentioned in the two stickies pinned to the top of our forum). Regular blood tests will tell him and his doctor how his blood sugar is being controlled.
+
+I wish I could help more. I hope your dad is doing ok. He does need to be checked out by another doctor, maybe.")
+
+comment4 = Comment.create(user_id: 24, post: post3, body: "He is tired a lot. I would think a doctor would notice anemia but maybe he should be tested. I have such a hard time getting him to take supplements because he's stubborn and on so many pills. But I'll chip away at him. I'll tell him too maybe he should see a hematologist. I imagine they would have a bit more knowledge.
+
+My uncle's spleen was removed a long time ago... One of his doctors figured out spherocystosis was affecting his sugar/readings but by then I think it was too late. And that doctor is in Kentucky so I can't send him there! :P
+
+I'll check the stickies to make sure he is doing things right and keep checking back to see if anyone else knows anything")
+
+comment5 = Comment.create(user_id: 12, post: post3, body: "This is one of the websites that talks about it: http://www.healthline.com/health/congenital-spherocytic-anemia#Overview
+
+It does seem to be hereditary so since it's in the family, it would seem to me that you and any siblings you have as well as cousins on your Dad's side should be tested. The article says a complete blood count and maybe other blood tests are needed. And, as I said, anemia is a symptom so that must be why he's tired.
+
+If the doctor is not following up on these tests, then for goodness sakes, he needs another doctor who will! It took just seconds to Google this and get information about it!
+
+Keep us updated. You're a good daughter to seek the best care for both your parents")
+
+post4 = Post.create(forum: forum1, user_id: 57, title: "Introduction ~ Pre-diabetic (maybe)", post_type: "story", icon: "storybook.png", body: "I have feared diabetes catching up to me for years. My parents both have type 2, as does a sibling. All were overweight at least some point in their lives. I too am overweight, but have recently LOST weight, which makes my recent result concerning.
+
+Last summer I was at my peak...BMI roughly 30, so bordering on medically obese (though my friends insist I'm not that fat. I was in that BMI 29+ range for 5 or more years (a steady creep after my last child).
+
+I lose 15 pounds since summer, and hope to lose more. BMI is now roughly 28. Fasting glucose history rides in the mid 90's for YEARS. It was 88 in my prime, and 93-96 yearly since 2008. Until last week, when I was surprised by a 110. I know it's not time to panic, but I have a tendency to do just that (and may head over to the anxiety boards next).
+
+I bought an A1C home kit, and did both within the week...results were 5.1 and 4.8. If accurate, all is well? Well, that's enough for now I guess. Thanks for the welcome! I hate waiting for more lab results, but if I lose another 5-10 by then (2-3 months), it can only help, right?")
+
+comment6 = Comment.create(post: post4, user_id: 43, body: "Very similar details indeed! Except I'm now 68. We can't escape heredity but we can deal with it in better ways than our parents did (maybe - at least mine...) because we have a lot more information available to us and meters! My mom and grandmother did not have meters. Until I came here and started learning and reading about blood sugar, I didn't know what effects potatoes, rice and food made with flour had on our blood sugar.
+
+Anyway, no, don't panic. Just take your health under your control and at this stage, you should be able to with some changes in food plans and activity. I would recommend the book Diabetes Solution by Dr. Richard Bernstein. He is a type 1 and a medical doctor. His book explains his journey to understanding how he can control his blood sugar along with insulin which he needs because he's a type 1. He is very strict about carbs. I am very low carb but not as strict as he suggests. I am now on metformin although for many years I was able to have tight control of my blood sugar with just diet and [a lot of] cardio exercise. His book explains blood sugar, meds, food and has recipes at the back.
+
+Yes, losing weight does help bring blood sugar down, so that's a good plan. You can read the resources threads at the top of the Diabetes Forum for more information.
+
+I'm glad you posted!")
+
+comment7 = Comment.create(post: post4, user_id: 40, body: "Good advice. I am on insulin, yes massive genetic history, however as stated people can break the cycle with simple good food, excercise and better mental and overall health. diabetes is a creeper, and it constantly creeps, so vigilance is key. I have learnt the hard way.")
+
+post5 = Post.create(forum: forum1, user_id: 55, title: "Recent low glucose levels for type 2 because of pancreatic cancer surgery 4 years ago", post_type: "story", icon: "caduceus.png", body: "Good afternoon,
+I come to the Forum again for advice and information. I was not diabetic until post pancreatic surgery. I am on no medication, I watch my diet and take either 2 cinnamon pills or cinnamon/biotin/ chromium pills daly, one after breakfast and supper. My fasting value is 100'110 and after meals 140-150...Recently,I felt sort of shaky so I checked my sugar. It was eighty five so I had some oj which made me feel ok. This has happened 4 or 5 times in the last 2 weeks. Could my pancreas be producing more insulin? My surgery was not whipple but on the tail. I am 4 years out, last CT scan in May which was good as were blood tests. I of course am worried always living with the thought of recurrence. Any ideas or similar experiences?")
+
+comment8 = Comment.create(post: post5, user_id: 49, body: "Welcome! First of all if your blood sugar has been around 100 to 150, your pancreas must be producing some insulin. There is actually a test that measures this, the insulin c-peptide test. (See this or other sites for more info: www.healthline.com/health/insulin-c-peptide#Overview1). If your blood sugar was extremely high, then I'm sure your doctor would want you on some medication or even insulin, but your levels seem to be controllable by diet.
+
+In any case, the 85 is totally a normal reading and the reason you might have felt shaky is because your body was so used to higher blood sugar that it didn't recognize a normal reading. I don't know if the cinnamon or biotin or any of that combination actually helps - I've read lots of articles about them and have taken then with no good effects on blood sugar - but what certainly helps keep blood sugar nearer to normal levels is cutting out heavy carbs like bread, anything made with flour or sugar, rice and potatoes.
+
+You are very lucky that after having pancreatic surgery your insulin-producing cells in the pancreas were not destroyed! This happens a lot from what I've read. That's great for you and that you have recovered from the pancreatic cancer! Congratulations!
+
+So, if your blood sugar can average a little lower (lower fasting and lower post-prandial [after eating]), then you should get used to blood sugar in the low 100's, 90's and 80's which would all be normal readings!")
+
+post6 = Post.create(forum: forum1, user_id: 13, title: "Latest best glucose meter list from Consumer Reports", post_type: "news", body: "Consumer Reports just published their list in November's issue.  They tested 25 and recommend 9:
+
+Accu-Chek Aviva
+FreeStyle Lite
+Bayer Contour Next
+Bayer Breeze 2
+Up & Up (Target brand)
+ReliOn (Walmart brand)
+Accu-Chek Compact Plus
+TRUEresult Blood Glucose Monitoring System (also available under pharmacy brand names)
+FreeStyle Freedom Lite
+
+All have an excellent overall score and accuracy.  Up & Up and ReliOn are the cheapest and have the cheapest test strips.  This is something to consider if you don't have insurance or if your doctor has not prescribed a meter and you just want to test on your own and insurance won't cover it.")
+
+comment9 = Comment.create(post: post6, user_id: 18, body: "I change to Accu-check Aviva this year after using a FreeStyle Lite for years. I mostly changed because I felt the quality of the lancets was not being maintained, and the pricks had become more painful than they should be. With the Accu-check I barely feel the prick, and I'm very happy with the change.")
+
+comment10 = Comment.create(post: post6, user_id: 19, body: "I used to use compact plus before going on the pump")
 
 # GENDER Question
 # num females

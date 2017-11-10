@@ -1,12 +1,14 @@
-import React from 'react'
-import QuestionTile from '../components/QuestionTile'
+import React from 'react';
+import QuestionTile from '../components/QuestionTile';
+import { Link } from 'react-router'
 
 class QuestionIndexContainer extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       payload: {},
-      checked: {}
+      checked: {},
+      submitted: true
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -16,7 +18,7 @@ class QuestionIndexContainer extends React.Component {
   clearForm() {
     this.setState({
       payload: {},
-      checked: {}
+      checked: {},
     })
   }
 
@@ -40,6 +42,7 @@ class QuestionIndexContainer extends React.Component {
     }
     this.props.addNewSubmission(formPayload)
     this.clearForm()
+    this.setState({ submitted: true })
   }
 
   render() {
@@ -55,6 +58,21 @@ class QuestionIndexContainer extends React.Component {
         />
       )
     })
+    let buttonLinks;
+    if(this.state.submitted){
+      buttonLinks =
+      <div className='button-group'>
+        <button>
+          <Link to='/surveys'> Back to Surveys </Link>
+        </button>
+        <button>
+          <Link to='/illnesses'> Back to Illnesses </Link>
+        </button>
+        <button>
+          <a href='/charts'> Go to Chart </a>
+        </button>
+      </div>
+    }
     return(
       <div id="index">
         <form onSubmit={this.handleSubmit}>
@@ -62,6 +80,7 @@ class QuestionIndexContainer extends React.Component {
           <div className='button-group'>
             <input className='button' type='submit' value='Submit' />
           </div>
+          {buttonLinks}
         </form>
       </div>
     )

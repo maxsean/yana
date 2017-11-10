@@ -4,52 +4,65 @@
   background-attachment: fixed;
   background-position: center;
   color: #333333;
+  font-family: 'Oxygen', sans-serif;
 }
 
 .body h1 {
   color: #333333;
+  font-family: 'Oxygen', sans-serif;
 }
 
 .body h2 {
   color: #333333;
+  font-family: 'Oxygen', sans-serif;
 }
 
 .body h3 {
   color: #333333;
+  font-family: 'Oxygen', sans-serif;
 }
 
 .body p {
   font-size: 20px;
   color: #333333;
+  font-family: 'Oxygen', sans-serif;
+}
+
+
+#logoImage {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  box-shadow: inset -2px -6px 74px 19px rgba(218,230,242,1);
+  background-image: url("crowd.jpg");
+  background-position: top center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  float: left;
 }
 
 .welcomeImage {
-  background-image: url("crowd.jpg");
-  background-repeat: no-repeat;
-  background-position: center top;
-  box-shadow: 25px 25px 50px 0 white inset, -25px -25px 50px 0 white inset;
-  width: 800px;
-  height: 200px;
-  margin-bottom: 50px;
-  margin-left: 10%;
-  margin-right: 12.5%;
-  padding-left: 15%;
-  padding-right: 15%;
-
+  margin-bottom: 7%;
   text-align: center;
 }
 
 .welcomeImage h1 {
-  font-family: 'Oxygen', sans-serif;
-  font-size: 72px;
+  font-family: 'Vollkorn', serif;
+  font-size: 132px;
+  line-height: 120px;
   font-weight: bold;
+  display: inline-block;
+  margin-left: 75px;
+  padding-top: 10px;
 }
 
 .welcomeImage h2 {
   font-family: 'Oxygen', sans-serif;
-  color: white
+  color: #6789A6;
+  display: inline-block;
+  margin-left: 75px;
+  line-height: 40px;
 }
-
 
 #hiddenSpace {
   background-color: #000;
@@ -77,23 +90,21 @@
 
 blockquote{
   display: block;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.75);
   position: relative;
   margin-top: 50px;
 
   /*Font*/
-  font-family: Georgia, serif;
   font-size: 35px;
-  text-align: justify;
   width: 100%;
 
 }
 
 blockquote::before{
   content: "\201C";
-  font-family: Georgia, serif;
-  font-size: 60px;
   font-weight: bold;
+  font-size: 72px;
+  font-family: Georgia, serif;
 
   /*Positioning*/
   position: absolute;

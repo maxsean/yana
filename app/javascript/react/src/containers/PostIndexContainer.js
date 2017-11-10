@@ -13,6 +13,10 @@ class PostIndexContainer extends React.Component {
     this.setState({ posts: nextProps.posts });
   }
 
+  handleDelete(id) {
+    this.props.deletePost(id)
+  }
+
   render(){
     let posts = this.props.posts.map(post => {
       return(
@@ -22,7 +26,11 @@ class PostIndexContainer extends React.Component {
           title={post.title}
           body={post.body}
           user={post.user}
+          comments={post.comments}
+          post_type={post.post_type}
           created_at={post.created_at}
+          current_user={this.props.current_user}
+          handleDelete={() => this.handleDelete(post.id)}
         />
       )
     })
