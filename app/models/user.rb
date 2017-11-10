@@ -9,12 +9,12 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  has_many :posts
-  has_many :post_votes
-  has_many :comments
-  has_many :diagnoses
+  has_many :posts, dependent: :destroy
+  has_many :post_votes, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :diagnoses, dependent: :destroy
   has_many :illnesses, through: :diagnoses
-  has_many :submissions
+  has_many :submissions, dependent: :destroy
   has_many :questions, through: :submissions
 
   validates_format_of :email, with: EMAIL_REGEXP
