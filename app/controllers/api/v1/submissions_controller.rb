@@ -3,11 +3,16 @@ class Api::V1::SubmissionsController < Api::V1::ApiController
   def create
     if current_user
       submissions = JSON.parse(request.body.read)["payload"]
-
       user = current_user
 
       submissions.each do |k, v|
-        Submission.create(user: user, question_id: k.to_i, answer: v.to_i)
+        submission = Submission.new(user: user, question_id: k.to_i, answer: v.to_i)
+        if submission.valid?
+          submission.save
+        else
+          submission = Submission.find_by(user: user, question_id: k.to_i)
+          submission.update(answer: v.to_i)
+        end
       end
 
       message = {submission: ["successful"]}
