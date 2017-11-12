@@ -11,16 +11,13 @@ class Api::V1::UsersController < Api::V1::ApiController
 
   def create
     body = JSON.parse(request.body.read)
-    # checker = ReCaptchaChecker.new(params[:re_captcha_response])
     user = User.new(body)
     # user.password = params[:password]
     # user.password_confirmation = params[:password_confirmation]
     if user.save
-      # user.send_confirmation_email
-      messages = {registration: ["successful, please login"]}
+      messages = {registration: ["successful, please login. Verification process coming soon"]}
       render json: {messages: messages}, status: :created
     else
-      # user.valid?
       render json: { error: user.errors }, status: :unprocessable_entity
     end
   end
@@ -39,7 +36,6 @@ class Api::V1::UsersController < Api::V1::ApiController
         current_user.confirmed_at = nil
         current_user.send(:generate_confirmation_digest)
         sign_out
-        # Please confirm your email to re-activate your account.
       end
       if current_user.save
         render json: current_user
