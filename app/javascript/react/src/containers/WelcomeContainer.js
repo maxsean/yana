@@ -28,6 +28,7 @@ class WelcomeContainer extends Component {
 
   render() {
     let buttons;
+    // only appears if user signs in
     if(this.state.current_user.id){
       buttons =
       <div className='button-group' style={{padding: "0"}}>

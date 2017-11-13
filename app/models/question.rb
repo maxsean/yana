@@ -7,6 +7,9 @@ class Question < ApplicationRecord
   validates :body, presence: true
 
   def self.d3(survey_id)
+    # used to prepare data for D3.js library
+    # consider refactoring to avoid triple nested loop
+
     children = []
     Question.where(survey_id: survey_id).each do |question|
       children << {

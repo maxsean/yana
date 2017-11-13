@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :user_signed_in?
   protect_from_forgery with: :null_session
 
+## many helper methods to be inherited
+
   def authenticate_user!
     if !user_signed_in?
       persist_location!

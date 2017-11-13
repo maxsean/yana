@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
   before_action :prevent_duplicate_sign_in, only: [:create, :new]
 
+  # user signs in
   def create
     if params[:session][:login].match(User::EMAIL_REGEXP)
       user = User.find_by(email: params[:session][:login].downcase)
@@ -18,6 +19,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  # user signs out
   def destroy
     sign_out
     flash[:success] = "Signed out."

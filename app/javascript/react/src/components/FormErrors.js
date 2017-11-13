@@ -1,5 +1,6 @@
 import React from 'react';
 
+// meant for anything the backend throws back (i.e. errors and messages) in {key => [values]} format
 const FormErrors = (props) => {
   let errors = props.formErrors
   return(

@@ -40,6 +40,7 @@ class SurveyShowContainer extends React.Component {
     })
   }
 
+  // triggered by QuestionIndexContainer child
   addNewSubmission(formPayload) {
     fetch('/api/v1/submissions', {
       credentials: 'same-origin',
@@ -56,6 +57,7 @@ class SurveyShowContainer extends React.Component {
   }
 
   render() {
+    // only appears if backend sends errors or messages
     let errors;
     if(this.state.errors != {}){
       errors = <FormErrors formErrors={this.state.errors}/>

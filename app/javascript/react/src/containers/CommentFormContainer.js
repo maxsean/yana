@@ -25,6 +25,7 @@ class CommentFormContainer extends React.Component {
     })
   }
 
+// dependent on parent component - can either add new (parent post show container) or edit existing (parent comment tile)
   handleSubmit(event) {
     event.preventDefault()
     let formPayload = {

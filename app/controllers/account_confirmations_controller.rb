@@ -1,5 +1,5 @@
 class AccountConfirmationsController < ApplicationController
-
+# not implemented. intended for future development
   def edit
     user = User.find_by(email: params[:email])
     if user && user.confirmed_at.nil? && user.authenticated?(:confirmation, params[:id])

@@ -2,6 +2,7 @@ class Api::V1::UsersController < Api::V1::ApiController
   # before_action :authenticate_user_api!, only: [:update]
 
   def index
+    # returns signed in user, otherwise a fake user that will fail conditionals set up in the React components
     if current_user
       render json: { user: current_user }
     else
@@ -10,6 +11,7 @@ class Api::V1::UsersController < Api::V1::ApiController
   end
 
   def create
+    # create new user. need to refactor password confirmation
     body = JSON.parse(request.body.read)
     user = User.new(body)
     # user.password = params[:password]
@@ -23,10 +25,12 @@ class Api::V1::UsersController < Api::V1::ApiController
   end
 
   def show
+    # not implemented. consider for future development
     render json: authorized_user, adapter: :attributes
   end
 
   def update
+    # not implemented. consider for future development
     if !current_user.authenticate(params[:password])
       current_user.errors.add(:password, :invalid)
       render json: { error: current_user.errors }, status: :unprocessable_entity

@@ -1,6 +1,7 @@
 import React from 'react';
 import CommentFormContainer from '../containers/CommentFormContainer'
 
+// child of CommentIndexContainer
 class CommentTile extends React.Component {
   constructor(props){
     super(props);
@@ -12,10 +13,12 @@ class CommentTile extends React.Component {
     this.editComment = this.editComment.bind(this)
   }
 
+// make sure component rerenders when user submits new comment, or edits/delete
   componentWillReceiveProps(nextProps) {
     this.setState({ comment: nextProps.comment });
   }
 
+// edit comment function, called by handleSubmit in CommentFormContainer child
   editComment(formPayload) {
     let comment_id = this.props.id
     fetch(`/api/v1/comments/${comment_id}`, {
@@ -31,6 +34,7 @@ class CommentTile extends React.Component {
     })
   }
 
+// toggles CommentFormContainer child appearance
   handleEditClick(event) {
     event.preventDefault()
     this.setState({edit: true})
@@ -40,6 +44,8 @@ class CommentTile extends React.Component {
     let body = this.props.body
     let created_at = this.props.created_at
     let buttons;
+
+    // edit and delete buttons only appear if user made original comment
     if(this.props.current_user.id == this.props.user.id){
       buttons =
       <div style={{float: "left"}}>
@@ -52,6 +58,7 @@ class CommentTile extends React.Component {
       </div>
     }
 
+    // toggles CommentFormContainer child appearance
     let editForm;
     if(this.state.edit){
       editForm =

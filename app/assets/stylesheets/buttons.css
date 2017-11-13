@@ -1,3 +1,5 @@
+/*styling for all buttons including voting, navigation, edit, delete, submit*/
+
 .button-group {
   display: flex;
   justify-content: space-around;

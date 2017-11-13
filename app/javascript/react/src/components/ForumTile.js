@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
 
+// child of ForumIndexContainer
 const ForumTile = (props) => {
   return(
     <div className="grid-x" id="tile">

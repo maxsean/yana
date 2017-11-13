@@ -1,5 +1,6 @@
 class Api::V1::ApiController < ActionController::Base
-  
+
+  ## many helper methods. Consider refactoring due to similarity to application_controller.rb
   def authenticate_user!
     if !user_signed_in?
       persist_location!

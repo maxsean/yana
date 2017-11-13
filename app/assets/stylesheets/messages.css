@@ -1,3 +1,5 @@
+/*styling for messages and errors thrown after user submission to database*/
+
 .formErrors ul {
   list-style: none;
   font-size: 20px;

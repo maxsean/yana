@@ -1,5 +1,6 @@
 import React from 'react'
 
+// child of QuestionIndexContainer
 const QuestionTile = (props) => {
   let choices = props.choices.map(choice => {
     return(

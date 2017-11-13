@@ -1,6 +1,7 @@
 import React from 'react'
 import PostTile from '../components/PostTile'
 
+// child of ForumShowContainer
 class PostIndexContainer extends React.Component {
   constructor(props){
     super(props);
@@ -13,11 +14,13 @@ class PostIndexContainer extends React.Component {
     this.setState({ posts: nextProps.posts });
   }
 
+  // triggered by child PostTile
   handleDelete(id) {
     this.props.deletePost(id)
   }
 
   render(){
+    // consider refactoring to send whole post
     let posts = this.props.posts.map(post => {
       return(
         <PostTile
