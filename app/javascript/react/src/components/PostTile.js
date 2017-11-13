@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import CommentIndexContainer from '../containers/CommentIndexContainer';
+import PostFormContainer from '../containers/PostFormContainer';
 
 class PostTile extends React.Component {
   constructor(props){
@@ -8,12 +9,20 @@ class PostTile extends React.Component {
     this.state = {
       karma: 0,
       upvote: 0,
-      downvote: 0
+      downvote: 0,
+      edit: false,
+      post: this.props.post
     }
+    this.handleEditClick = this.handleEditClick.bind(this)
+    this.editPost = this.editPost.bind(this)
   }
 
   componentDidMount() {
     this.fetchPostVote()
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ post: nextProps.post });
   }
 
   fetchPostVote(user, post) {
@@ -35,6 +44,26 @@ class PostTile extends React.Component {
     })
   }
 
+  editPost(formPayload) {
+    let post_id = this.props.id
+    fetch(`/api/v1/posts/${post_id}`, {
+      credentials: 'same-origin',
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify(formPayload)
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.setState({post: data})
+      this.props.fetchForum()
+    })
+  }
+
+  handleEditClick(event) {
+    event.preventDefault()
+    this.setState({edit: true})
+  }
+
 
   render(){
     let id = this.props.id
@@ -44,12 +73,27 @@ class PostTile extends React.Component {
     if(this.props.current_user.id == this.props.user.id){
       buttons =
       <div style={{float: "left"}}>
-        <button style={{backgroundColor: "#00B200", marginRight: "10px"}}>
+        <button style={{backgroundColor: "#00B200", marginRight: "10px"}} onClick={this.handleEditClick}>
           Edit
         </button>
         <button style={{backgroundColor: "#333333"}} onClick={this.props.handleDelete}>
           Delete
         </button>
+      </div>
+    }
+
+    let editForm;
+    if(this.state.edit){
+      editForm =
+      <div>
+        <br/>
+        <br/>
+        <br/>
+        <PostFormContainer
+          addNewPost={this.editPost}
+          current_user={this.props.current_user}
+          forum_id={this.props.forum_id}
+        />
       </div>
     }
 
@@ -68,6 +112,7 @@ class PostTile extends React.Component {
             </span>
             {buttons}
           </div>
+          {editForm}
         </div>
         <hr/>
       </div>

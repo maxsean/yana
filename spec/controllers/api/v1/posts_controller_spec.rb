@@ -20,14 +20,14 @@ RSpec.describe Api::V1::PostsController, type: :controller do
       expect(response.status).to eq 200
 
       expect(returned_json).to be_kind_of(Hash)
-      expect(post_json["title"]).to eq "post8"
-      expect(post_json["body"]).to eq "post body 8"
+      expect(post_json["title"]).to eq first_post.title
+      expect(post_json["body"]).to eq first_post.body
 
       expect(association_json).to be_kind_of(Array)
       expect(association_json.length).to eq 2
       #most recently created comments should be first in array
-      expect(association_json[0]["body"]).to eq "comment2"
-      expect(association_json[1]["body"]).to eq "comment1"
+      expect(association_json[0]["body"]).to eq second_comment.body
+      expect(association_json[1]["body"]).to eq first_comment.body
 
     end
   end
@@ -69,4 +69,26 @@ RSpec.describe Api::V1::PostsController, type: :controller do
       expect(returned_json["error"].length).to eq 2
     end
   end
+
+  describe "PATCH#update" do
+    it "should update post" do
+      second_forum = FactoryGirl.create(:forum, illness: first_illness)
+      second_post = FactoryGirl.create(:post, forum: second_forum, user: first_user)
+
+      post_json = {
+        title: "updated title",
+        body: "updated body"
+      }.to_json
+
+      patch :update, {params: {id: second_post.id}, body: post_json}
+
+      returned_json = JSON.parse(response.body)
+      expect(response.status).to eq 200
+      expect(returned_json["id"]).to eq second_post.id
+      expect(returned_json["title"]).to eq "updated title"
+      expect(returned_json["body"]).to eq "updated body"
+
+    end
+  end
+
 end

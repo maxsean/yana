@@ -18,16 +18,16 @@ RSpec.describe Api::V1::ForumsController, type: :controller do
       expect(response.status).to eq 200
 
       expect(returned_json).to be_kind_of(Hash)
-      expect(returned_json["forum"]["name"]).to eq "forum2"
-      expect(returned_json["forum"]["description"]).to eq "forum description 2"
+      expect(returned_json["forum"]["name"]).to eq first_forum.name
+      expect(returned_json["forum"]["description"]).to eq first_forum.description
 
       expect(association_json).to be_kind_of(Array)
       expect(association_json.length).to eq 2
       #most recently created posts should be first in array
-      expect(association_json[0]["title"]).to eq "post3"
-      expect(association_json[0]["body"]).to eq "post body 3"
-      expect(association_json[1]["title"]).to eq "post2"
-      expect(association_json[1]["body"]).to eq "post body 2"
+      expect(association_json[0]["title"]).to eq second_post.title
+      expect(association_json[0]["body"]).to eq second_post.body
+      expect(association_json[1]["title"]).to eq first_post.title
+      expect(association_json[1]["body"]).to eq first_post.body
 
     end
   end

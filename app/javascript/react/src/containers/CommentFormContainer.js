@@ -50,7 +50,7 @@ class CommentFormContainer extends React.Component {
         </h3>
         <form className='small-8 cell'  onSubmit={this.handleSubmit}>
           <TextAreaField
-            content={this.state.comment}
+            content={this.state.body}
             label="Comment: "
             name="body"
             handleChange={this.handleChange}

@@ -23,6 +23,7 @@ class PostShowContainer extends React.Component {
     this.handleDownvoteClicked = this.handleDownvoteClicked.bind(this);
     this.handleClearClicked = this.handleClearClicked.bind(this);
     this.deleteComment = this.deleteComment.bind(this);
+    this.fetchPost = this.fetchPost.bind(this)
   }
 
   componentDidMount() {
@@ -226,6 +227,8 @@ class PostShowContainer extends React.Component {
         comments={this.state.comments}
         current_user={this.state.current_user}
         deleteComment={this.deleteComment}
+        fetchPost={this.fetchPost}
+        post_id={this.props.params.id}
       />
     }
 

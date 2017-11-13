@@ -21,7 +21,6 @@ class IllnessShowContainer extends React.Component {
   }
 
   render(){
-    debugger;
     let forumIndex;
     if(this.state.illness["forums"].length > 0){
       forumIndex =

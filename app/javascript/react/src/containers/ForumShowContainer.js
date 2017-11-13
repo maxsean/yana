@@ -14,6 +14,7 @@ class ForumShowContainer extends React.Component {
     }
     this.addNewPost = this.addNewPost.bind(this)
     this.deletePost = this.deletePost.bind(this)
+    this.fetchForum = this.fetchForum.bind(this)
   }
 
   componentDidMount() {
@@ -103,6 +104,8 @@ class ForumShowContainer extends React.Component {
         addNewPost={this.addNewPost}
         current_user={this.state.current_user}
         deletePost={this.deletePost}
+        fetchForum={this.fetchForum}
+        forum_id={this.props.params.id}
       />
     }
     return(
