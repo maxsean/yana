@@ -11,7 +11,7 @@ An online forum for patients with chronic illnesses
 This project was created in two weeks by a single junior web developer. The goal was to provide a support service for chronically ill patients outside the hospital. Users can sign up to post on forums to share stories, ask for help, or bring attention to medical news. Users can also partake in surveys that capture demographic data. They can then explore their community's data with an interactive visualization.
 
 This app can be found on [heroku](https://yana-app.herokuapp.com).
-If you want to demo the product without signing up, you may use the username: "testuser" with password: "123456".
+If you want to demo the product without signing up, you may use the username: "testuser" with password: "123456". Check out the Diabetes forum for some seeded data.
 
 ## Technologies
 * Ruby on Rails: back-end mainly used for API endpoints
@@ -43,6 +43,7 @@ For Capybara tests run `rake`
 and for Jasmine-Enzyme tests run `karma start`.
 
 ## ToDo
+* Improve mobile support (responsiveness)
 * External API integration with ClinicalTrials.gov
 * External API integration with an open-source Health Information System (i.e. OpenMRS)
 * Search filters for posts
