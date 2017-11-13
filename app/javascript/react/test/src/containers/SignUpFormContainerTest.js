@@ -64,24 +64,28 @@ describe('SignUpFormContainer', () => {
       label: "Username: ",
       name: "handle",
       handleChange: jasmine.any(Function),
+      type: "text"
     })
     expect(wrapper.find(TextInputField).at(1).props()).toEqual({
       content: "test@user.com",
       label: "Email: ",
       name: "email",
       handleChange: jasmine.any(Function),
+      type: "text"
     })
     expect(wrapper.find(TextInputField).at(2).props()).toEqual({
       content: "123456",
       label: "Password: ",
       name: "password",
       handleChange: jasmine.any(Function),
+      type: "password"
     })
     expect(wrapper.find(TextInputField).at(3).props()).toEqual({
       content: "123456",
       label: "Confirmation: ",
       name: "password_confirmation",
       handleChange: jasmine.any(Function),
+      type: "password"
     })
   })
 })
