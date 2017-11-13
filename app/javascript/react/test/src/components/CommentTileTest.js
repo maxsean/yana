@@ -24,10 +24,6 @@ describe('CommentTile', () => {
     expect(wrapper.find('p').text()).toBe('test body')
   })
 
-  it('should have user and date of creation', () => {
-    expect(wrapper.find('div').at(2).text()).toBe( 'Made by test user on  Nov 12 2017EditDelete')
-  })
-
   it('should have buttons to modify comment', () => {
     expect(wrapper.find('button')).toBePresent()
   })
