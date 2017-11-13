@@ -47,6 +47,7 @@ class ForumShowContainer extends React.Component {
     })
   }
 
+  // triggered by handleSubmit in child PostFormContainer
   addNewPost(formPayload) {
     fetch('/api/v1/posts', {
       credentials: 'same-origin',
@@ -68,6 +69,7 @@ class ForumShowContainer extends React.Component {
     })
   }
 
+  // triggered by PostTile child in PostIndexContainer child
   deletePost(id){
     fetch(`/api/v1/posts/${id}`, {
       method: 'DELETE'
@@ -78,11 +80,13 @@ class ForumShowContainer extends React.Component {
   }
 
   render(){
+    // only appears if backend returns errors or messages
     let errors;
     if(this.state.errors != {}){
       errors = <FormErrors formErrors={this.state.errors}/>
     }
 
+    // only appears if user is signed in
     let postForm =
       <div style={{paddingLeft: "12.5%"}}>
         <h3 style={{color: "#800000"}}>Sign in or sign up to make a post</h3>
@@ -96,6 +100,7 @@ class ForumShowContainer extends React.Component {
         forum_id={this.props.params.id}
       />
     }
+    // only appears if forum has posts
     let postIndex;
     if(this.state.posts.length > 0){
       postIndex =

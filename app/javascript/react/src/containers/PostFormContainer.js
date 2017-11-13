@@ -30,6 +30,7 @@ class PostFormContainer extends React.Component {
     })
   }
 
+  // dependent on parent component - can either add new (parent forum show container) or edit existing (parent post tile)
   handleSubmit(event) {
     event.preventDefault()
     let formPayload = {

@@ -1,6 +1,7 @@
 class Api::V1::SubmissionsController < Api::V1::ApiController
 
   def create
+    # create a survey submission if new, otherwise it updates existing submission (user must be signed in)
     if current_user
       submissions = JSON.parse(request.body.read)["payload"]
       user = current_user

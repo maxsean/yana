@@ -1,5 +1,6 @@
 import React from 'react';
 
+// used in form containers
 const TextAreaField = props => {
   return(
     <label onChange={props.handleChange}>{props.label}

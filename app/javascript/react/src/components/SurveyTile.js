@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+// child of SurveyIndexContainer
 const SurveyTile = (props) => {
   return(
     <div className="grid-x" id="tile">

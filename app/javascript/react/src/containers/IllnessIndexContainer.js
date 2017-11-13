@@ -21,6 +21,7 @@ class IllnessIndexContainer extends React.Component {
 
   render(){
     let illnesses;
+    // consider refactoring to just pass whole illness
     if (this.state.illnesses.length > 0) {
       illnesses = this.state.illnesses.map(illness => {
         return(

@@ -31,6 +31,7 @@ class PostShowContainer extends React.Component {
     this.fetchPost()
   }
 
+  // fetch post, its comments association, and user association
   fetchPost() {
     let postId = this.props.params.id
     fetch(`/api/v1/posts/${postId}`)
@@ -59,6 +60,7 @@ class PostShowContainer extends React.Component {
     })
   }
 
+  // fetch post current karma and current user's latest interactions
   fetchPostVote(user, post) {
     let check_state = {
       user_id: user,
@@ -94,6 +96,7 @@ class PostShowContainer extends React.Component {
     })
   }
 
+  // update button state and database, then return new post karma
   handleUpvoteClicked() {
     if (!this.state.disabledUpvote) {
       this.setState({
@@ -121,6 +124,7 @@ class PostShowContainer extends React.Component {
     }
   }
 
+  // update button state and database, then return new post karma
   handleDownvoteClicked() {
     if (!this.state.disabledDownvote) {
       this.setState({
@@ -148,6 +152,7 @@ class PostShowContainer extends React.Component {
     }
   }
 
+  // update button state and database, then return new post karma
   handleClearClicked() {
     this.setState({
       disabledUpvote: false,
@@ -173,6 +178,7 @@ class PostShowContainer extends React.Component {
     })
   }
 
+  // triggerd by handleSubmit in child CommentFormContainer
   addNewComment(formPayload) {
     fetch('/api/v1/comments', {
       credentials: 'same-origin',
@@ -194,6 +200,7 @@ class PostShowContainer extends React.Component {
     })
   }
 
+  // triggered by child CommentTile
   deleteComment(id){
     fetch(`/api/v1/comments/${id}`, {
       method: 'DELETE'
@@ -204,11 +211,13 @@ class PostShowContainer extends React.Component {
   }
 
   render(){
+    // only appears if backend returns errors or messages
     let errors;
     if(this.state.errors.body){
       errors = <FormErrors formErrors={this.state.errors}/>
     }
 
+    // only appears if user is signed in
     let commentForm =
       <h3>Sign in or sign up to leave a comment</h3>
     if(this.state.current_user.id){
@@ -220,6 +229,7 @@ class PostShowContainer extends React.Component {
       />
     }
 
+    // only appears if post has comments
     let commentIndex;
     if(this.state.comments.length > 0){
       commentIndex =
@@ -232,6 +242,7 @@ class PostShowContainer extends React.Component {
       />
     }
 
+    // only appears if user is signed in
     let vote;
     if(this.state.current_user.id) {
       vote =

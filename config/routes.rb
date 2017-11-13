@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # user sign in and sign out
   post '/', to: 'sessions#create'
   delete '/', to: 'sessions#destroy'
 
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :charts
+  resources :charts, only: [:index]
 
   root 'static_pages#index'
 

@@ -63,13 +63,14 @@ class SignUpFormContainer extends Component {
   }
 
   render() {
+    // only appears if backend returns errors for failed registration
     let errors;
     if(this.state.errors != {}){
       errors = <FormErrors formErrors={this.state.errors}/>
     }
     return(
       <div className="signUpFormContainer">
-        <div style={{paddingLeft:'25%'}}>        
+        <div style={{paddingLeft:'25%'}}>
           {errors}
         </div>
         <form

@@ -1,6 +1,7 @@
 import React from 'react'
 import CommentTile from '../components/CommentTile'
 
+// child of PostShowContainer
 class CommentIndexContainer extends React.Component {
   constructor(props){
     super(props);
@@ -9,15 +10,18 @@ class CommentIndexContainer extends React.Component {
     }
   }
 
+  // make sure component rerenders when user submits new comment, or edits/delete
   componentWillReceiveProps(nextProps) {
     this.setState({ comments: nextProps.comments })
   }
 
+  // triggered by child CommentTile
   handleDelete(id) {
     this.props.deleteComment(id)
   }
 
   render(){
+    // consider refactoring to just pass the whole comment
     let comments = this.props.comments.map(comment => {
       return(
         <CommentTile

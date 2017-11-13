@@ -1,6 +1,7 @@
 import React from 'react'
 import ForumTile from '../components/ForumTile'
 
+// child of IllnessShowContainer
 class ForumIndexContainer extends React.Component{
   constructor(props){
     super(props);
@@ -9,6 +10,7 @@ class ForumIndexContainer extends React.Component{
     }
   }
   render(){
+    // consider refactoring to just pass whole forum
     let forums = this.props.forums.map(forum => {
       return(
         <ForumTile

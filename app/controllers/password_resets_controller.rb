@@ -1,5 +1,5 @@
 class PasswordResetsController < ApplicationController
-
+  # not implemented. intended for future development
   def create
     if params[:password_reset][:email].match(User::EMAIL_REGEXP)
       user = User.find_by(email:params[:password_reset][:email])

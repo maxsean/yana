@@ -2,6 +2,7 @@ import React from 'react';
 import QuestionTile from '../components/QuestionTile';
 import { Link } from 'react-router'
 
+// child of SurveyShowContainer
 class QuestionIndexContainer extends React.Component {
   constructor(props){
     super(props);
@@ -22,6 +23,7 @@ class QuestionIndexContainer extends React.Component {
     })
   }
 
+  // payload is actually a hash where question id and and choice id are appended to as key-value pairs; checked is also the same to keep track of which radio button should be given checked state
   handleChange(event) {
     let payload = this.state.payload
     let checked = this.state.checked
@@ -58,6 +60,7 @@ class QuestionIndexContainer extends React.Component {
         />
       )
     })
+    // only appears after survey is submitted
     let buttonLinks;
     if(this.state.submitted){
       buttonLinks =

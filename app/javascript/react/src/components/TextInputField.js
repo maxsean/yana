@@ -1,5 +1,6 @@
 import React from 'react';
 
+// used in form containers
 const TextInputField = props => {
   return(
     <label style={{fontSize:"16px"}} onChange={props.handleChange}>{props.label}

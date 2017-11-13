@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import CommentIndexContainer from '../containers/CommentIndexContainer';
 import PostFormContainer from '../containers/PostFormContainer';
 
+// child of PostIndexContainer
 class PostTile extends React.Component {
   constructor(props){
     super(props);
@@ -21,10 +22,12 @@ class PostTile extends React.Component {
     this.fetchPostVote()
   }
 
+  // make sure component rerenders when user submits new post, or edits/delete
   componentWillReceiveProps(nextProps) {
     this.setState({ post: nextProps.post });
   }
 
+  // get current post karma and current user's vote (and change state of buttons accordingly)
   fetchPostVote(user, post) {
     let check_state = {
       user_id: null,
@@ -44,6 +47,7 @@ class PostTile extends React.Component {
     })
   }
 
+  // edit post function, called by handleSubmit in PostFormContainer child
   editPost(formPayload) {
     let post_id = this.props.id
     fetch(`/api/v1/posts/${post_id}`, {
@@ -59,6 +63,7 @@ class PostTile extends React.Component {
     })
   }
 
+  // toggles PostFormContainer child appearance
   handleEditClick(event) {
     event.preventDefault()
     this.setState({edit: true})
@@ -70,6 +75,7 @@ class PostTile extends React.Component {
     let created_at = this.props.created_at
 
     let buttons;
+    // edit and delete buttons only appear if user made original comment
     if(this.props.current_user.id == this.props.user.id){
       buttons =
       <div style={{float: "left"}}>
@@ -82,6 +88,7 @@ class PostTile extends React.Component {
       </div>
     }
 
+    // toggles CommentFormContainer child appearance
     let editForm;
     if(this.state.edit){
       editForm =

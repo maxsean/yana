@@ -1,5 +1,6 @@
 class Api::V1::PostsController < Api::V1::ApiController
   def show
+    # returns specific post with associated user and comments
     post = Post.find(params["id"]).to_json(include: :user)
 
     comments = Post.find(params["id"]).comments.order('created_at DESC').to_json(include: :user)
@@ -8,6 +9,7 @@ class Api::V1::PostsController < Api::V1::ApiController
   end
 
   def create
+    # creates new post and returns forum's updated posts with user and comments associations
     body = JSON.parse(request.body.read)
     post = Post.new(body)
 
@@ -21,6 +23,7 @@ class Api::V1::PostsController < Api::V1::ApiController
   end
 
   def update
+    # updates existing post and returns updated post
     body = JSON.parse(request.body.read)
     post = Post.find(params[:id])
 
@@ -30,6 +33,7 @@ class Api::V1::PostsController < Api::V1::ApiController
   end
 
   def destroy
+    # deletes existing post
     post = Post.find(params[:id])
     post.destroy
   end

@@ -6,6 +6,7 @@ class PostVote < ApplicationRecord
   validates :user_id, uniqueness: { scope: :post_id }
 
   def self.getKarma(parameters)
+    # used to calculated a post's total score based on user votes (see api post_vote controller)
     karma = 0
     upvote = 0
     downvote = 0

@@ -30,10 +30,14 @@ class User < ApplicationRecord
   end
 
   def confirm!
+    # not implemented. consider for future development
+
     touch(:confirmed_at) if confirmed_at.nil?
   end
 
   def confirmed?
+    # not implemented. consider for future development
+
     !confirmed_at.nil?
   end
 
@@ -47,6 +51,8 @@ class User < ApplicationRecord
   end
 
   def generate_reset_digest
+    # not implemented. consider for future development
+
     self.password_reset_token = User.new_token
     update_attributes(password_reset_digest: User.digest(password_reset_token), password_reset_sent_at: Time.current)
   end
@@ -56,10 +62,14 @@ class User < ApplicationRecord
   end
 
   def send_confirmation_email
+    # not implemented. consider for future development
+
     UserMailer.account_confirmation(self.id, self.confirmation_token).deliver_now
   end
 
   def send_password_reset_email
+    # not implemented. consider for future development
+
     UserMailer.password_reset(self.id, self.password_reset_token).deliver_now
   end
 

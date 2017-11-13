@@ -1,6 +1,7 @@
 class Api::V1::PostVotesController < ApplicationController
 
   def create
+    # creates a new vote between a user and a post and returns user's choice and post karma score. Involves PostVote class method which calculates karma
     body = JSON.parse(request.body.read)
 
     user_vote = PostVote.find_by(user_id: body["user_id"], post_id: body["post_id"])
@@ -18,6 +19,7 @@ class Api::V1::PostVotesController < ApplicationController
   end
 
   def update
+    # updates existing vote between a user and a post and returns user's choice and post karma score. Involves PostVote class method which calculates karma
     body = JSON.parse(request.body.read)
     postVote = PostVote.new(body)
 

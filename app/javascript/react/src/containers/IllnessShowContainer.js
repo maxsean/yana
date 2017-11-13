@@ -22,6 +22,7 @@ class IllnessShowContainer extends React.Component {
 
   render(){
     let forumIndex;
+    // only appears if illness has forums
     if(this.state.illness["forums"].length > 0){
       forumIndex =
       <ForumIndexContainer
