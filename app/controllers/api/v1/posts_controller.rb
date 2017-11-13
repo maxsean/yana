@@ -20,6 +20,15 @@ class Api::V1::PostsController < Api::V1::ApiController
     end
   end
 
+  def update
+    body = JSON.parse(request.body.read)
+    post = Post.find(params[:id])
+
+    post.update(title: body["title"], body: body["body"], post_type: body["post_type"])
+
+    render json: post
+  end
+
   def destroy
     post = Post.find(params[:id])
     post.destroy

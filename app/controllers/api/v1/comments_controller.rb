@@ -13,6 +13,15 @@ class Api::V1::CommentsController < Api::V1::ApiController
 
   end
 
+  def update
+    body = JSON.parse(request.body.read)
+    comment = Comment.find(params[:id])
+
+    comment.update(body: body["body"])
+
+    render json: comment
+  end
+
   def destroy
     comment = Comment.find(params[:id])
     comment.destroy

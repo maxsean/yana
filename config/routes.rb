@@ -8,8 +8,8 @@ Rails.application.routes.draw do
       resources :users
       resources :illnesses, only: [:index, :show]
       resources :forums, only: [:show]
-      resources :posts, only: [:show, :create, :destroy]
-      resources :comments, only: [:create, :destroy]
+      resources :posts, only: [:show, :create, :update, :destroy]
+      resources :comments, only: [:create, :update, :destroy]
       resources :post_votes, only: [:create, :update]
       resources :surveys, only: [:index, :show]
       resources :submissions, only: [:create]

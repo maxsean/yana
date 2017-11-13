@@ -1,35 +1,88 @@
 import React from 'react';
+import CommentFormContainer from '../containers/CommentFormContainer'
 
-const CommentTile = (props) => {
-  let body = props.body
-  let created_at = props.created_at
-  let buttons;
-  if(props.current_user.id == props.user.id){
-    buttons =
-    <div style={{float: "left"}}>
-      <button style={{backgroundColor: "#00B200", marginRight: "10px"}}>
-        Edit
-      </button>
-      <button style={{backgroundColor: "#333333"}} onClick={props.handleDelete}>
-        Delete
-      </button>
-    </div>
+class CommentTile extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      edit: false,
+      comment: this.props.comment
+    }
+    this.handleEditClick = this.handleEditClick.bind(this)
+    this.editComment = this.editComment.bind(this)
   }
 
-  return(
-    <div className="grid-x" id="tile">
-      <div className="small-12">
-        <p>{body}</p>
+  componentWillReceiveProps(nextProps) {
+    this.setState({ comment: nextProps.comment });
+  }
+
+  editComment(formPayload) {
+    let comment_id = this.props.id
+    fetch(`/api/v1/comments/${comment_id}`, {
+      credentials: 'same-origin',
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify(formPayload)
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.setState({comment: data})
+      this.props.fetchPost()
+    })
+  }
+
+  handleEditClick(event) {
+    event.preventDefault()
+    this.setState({edit: true})
+  }
+
+  render(){
+    let body = this.props.body
+    let created_at = this.props.created_at
+    let buttons;
+    if(this.props.current_user.id == this.props.user.id){
+      buttons =
+      <div style={{float: "left"}}>
+        <button style={{backgroundColor: "#00B200", marginRight: "10px"}} onClick={this.handleEditClick}>
+          Edit
+        </button>
+        <button style={{backgroundColor: "#333333"}} onClick={this.props.handleDelete}>
+          Delete
+        </button>
       </div>
-      <div className="small-12">
-        Made by {props.user.handle} on {Date(created_at).toString().substring(3,15)}
+    }
+
+    let editForm;
+    if(this.state.edit){
+      editForm =
+      <div>
         <br/>
         <br/>
-        {buttons}
+        <br/>
+        <CommentFormContainer
+          addNewComment={this.editComment}
+          current_user={this.props.current_user}
+          post_id={this.props.post_id}
+        />
       </div>
-      <hr/>
-    </div>
-  )
+    }
+
+    return(
+      <div className="grid-x" id="tile">
+        <div className="small-12">
+          <p>{body}</p>
+        </div>
+        <div className="small-12">
+          Made by {this.props.user.handle} on {Date(created_at).toString().substring(3,15)}
+          <br/>
+          <br/>
+          {buttons}
+          {editForm}
+        </div>
+        <hr/>
+      </div>
+    )
+  }
 }
 
 export default CommentTile;

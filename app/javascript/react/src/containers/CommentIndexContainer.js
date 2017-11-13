@@ -28,6 +28,9 @@ class CommentIndexContainer extends React.Component {
           created_at={comment.created_at}
           current_user={this.props.current_user}
           handleDelete={() => this.handleDelete(comment.id)}
+          comment={comment}
+          fetchPost={this.props.fetchPost}
+          post_id={this.props.post_id}
         />
       )
     })

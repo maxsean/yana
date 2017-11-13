@@ -5,7 +5,7 @@ class PostIndexContainer extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      posts: {}
+      posts: this.props.posts
     }
   }
 
@@ -31,6 +31,9 @@ class PostIndexContainer extends React.Component {
           created_at={post.created_at}
           current_user={this.props.current_user}
           handleDelete={() => this.handleDelete(post.id)}
+          fetchForum={this.props.fetchForum}
+          forum_id={this.props.forum_id}
+          post={post}
         />
       )
     })

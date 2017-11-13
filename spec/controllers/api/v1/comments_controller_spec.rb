@@ -41,4 +41,25 @@ RSpec.describe Api::V1::CommentsController, type: :controller do
       expect(returned_json["error"].length).to eq 2
     end
   end
+
+  describe "PATCH#update" do
+    it "should update post" do
+      second_forum = FactoryGirl.create(:forum, illness: first_illness)
+      second_post = FactoryGirl.create(:post, forum: second_forum, user: first_user)
+      second_comment = FactoryGirl.create(:comment, post: second_post, user: first_user)
+
+      post_json = {
+        body: "updated body"
+      }.to_json
+
+      patch :update, {params: {id: second_comment.id}, body: post_json}
+
+      returned_json = JSON.parse(response.body)
+      expect(response.status).to eq 200
+      expect(returned_json["id"]).to eq second_comment.id
+      expect(returned_json["body"]).to eq "updated body"
+
+    end
+  end
+
 end
