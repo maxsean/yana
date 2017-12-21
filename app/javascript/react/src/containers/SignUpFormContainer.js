@@ -76,6 +76,7 @@ class SignUpFormContainer extends Component {
         <form
           className="signUpForm"
           onSubmit={this.handleSubmit}>
+          <h3>Sign Up</h3>
           <TextInputField
             content={this.state.handle}
             label="Username: "

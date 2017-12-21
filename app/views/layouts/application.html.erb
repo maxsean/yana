@@ -15,20 +15,16 @@
 
   <body class="body">
 
-    <nav class="top-bar" style="position: fixed; width: 100%; z-index: 1">
-         <ul class="title-area">
-           <!-- Title Area -->
-           <li class="name">
-             <h1><a href="/">YANA </a></h1>
-           </li>
-         </ul>
-
+    <nav class="top-bar" style="position: fixed; width: 100%; z-index: 1; overflow: visible">
          <section class="top-bar-section">
            <!-- Left Nav Section -->
            <ul class="left">
              <li class="divider"></li>
-             <li class="has-dropdown"><a href="#" data-dropdown="drop1">Explore</a></li>
-              <ul class="f-dropdown small" id="drop1">
+             <li class="has-dropdown"><a href="#" data-dropdown="drop1">Explore YANA</a></li>
+              <ul class="f-dropdown medium" id="drop1">
+                <li>
+                  <a href="/">Home</a>
+                </li>
                 <li>
                   <a href="/illnesses">Illnesses</a>
                 </li>
@@ -38,55 +34,50 @@
                 <li>
                   <a href="/charts">Charts</a>
                 </li>
-              </ul>
-             <li class="divider"></li>
-               <% if user_signed_in? %>
-                <li class="active">
-                  <%= link_to 'Sign Out', root_path, method: :delete %>
-                </li>
-                <li class="divider"></li>
-                <ul class="title-area">
-                  <li class="name">
-                    <h1><a>Welcome <%= current_user.handle %><a></h1>
-                  </li>
-                </ul>
-               <% end %>
-             <% if current_user.nil? %>
-               <li class="active"><a href="/signup">Sign Up</a></li>
-               <li class="divider"></li>
-                 <li class="has-form" style="display: inline-block;">
-                   <form action="/" accept-charset="UTF-8" method="post">
-                     <input name="utf8" type="hidden" value="&#x2713;"/>
-                     <input type="hidden" name="authenticity_token" value="jpEFiM8bGRIOoba676f99my5ReSeN3h3uQfvKfRb2Tn+2+uYiVcMTU3h4I/Y/ZfD0SBVCHwLTuC+QBO/Ch/8Lg==">
-                     <div style="display: inline-block;">
-                       <input type="text" name="session[login]" id="session_login" placeholder="Email or Username"/>
-                     </div>
-                     <div style="display: inline-block;">
-                       <input type="password" name="session[password]" id="session_password" placeholder="Password"/>
-                     </div>
-                     <div style="display: inline-block;">
-                       <input type="submit" name="commit" value="Sign in" data-disable-with="Sign in" style="background-color: #078DB8; color: white; border-color: #078DB8;">
-                     </div>
-                  </form>
+                <% if user_signed_in? %>
+                 <li class="active">
+                   <%= link_to 'Sign Out', root_path, method: :delete %>
                  </li>
-              <% end %>
-           </ul>
-
-           <!-- Right Nav Section -->
-           <ul class="right">
-             <li class="divider show-for-small">
-             </li>
-           </ul>
+                <% end %>
+                <% if current_user.nil? %>
+                  <li class="active"><a href="/signup">Sign Up</a></li>
+                  <li class="divider"></li>
+                 <% end %>
+               </ul>
+              </ul>
          </section>
        </nav>
 
     <br/>
     <br/>
-    <div class="flash">
+    <div class="flash" style="margin: 2px 15%">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
     </div>
+
+    <% if !current_user %>
+      <br/>
+      <div class="signUpForm">
+        <h3>
+          Welcome to YANA! Please sign in or <a href="/signup">sign up</a>:
+        </h3>
+        <form action="/" accept-charset="UTF-8" method="post">
+          <input name="utf8" type="hidden" value="&#x2713;"/>
+          <input type="hidden" name="authenticity_token" value="jpEFiM8bGRIOoba676f99my5ReSeN3h3uQfvKfRb2Tn+2+uYiVcMTU3h4I/Y/ZfD0SBVCHwLTuC+QBO/Ch/8Lg==">
+          <div>
+            <input type="text" name="session[login]" id="session_login" placeholder="Email or Username"/>
+          </div>
+          <div>
+            <input type="password" name="session[password]" id="session_password" placeholder="Password"/>
+          </div>
+          <div>
+            <input type="submit" name="commit" value="Sign in" data-disable-with="Sign in" style="background-color: #078DB8; color: white; border-color: #078DB8; font-size: 16px;">
+          </div>
+       </form>
+      </div>
+      <br/>
+    <% end %>
 
 
     <script src="//d3js.org/d3.v3.min.js"></script>
