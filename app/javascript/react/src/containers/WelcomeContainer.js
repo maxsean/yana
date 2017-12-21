@@ -27,44 +27,41 @@ class WelcomeContainer extends Component {
 
 
   render() {
-    let buttons;
+    let display;
     // only appears if user signs in
     if(this.state.current_user.id){
-      buttons =
-      <div className='button-group' style={{padding: "0"}}>
-        <button>
-          <Link to='/illnesses'> Explore Illnesses </Link>
-        </button>
-        <button>
-          <Link to='/surveys'> Explore Surveys </Link>
-        </button>
-        <button>
-          <a href='/charts'> Explore Charts </a>
-        </button>
+      display =
+      <div>
+        <div id="intro">
+          <h1>YANA</h1>
+          <p>Share.Support.Learn</p>
+          <hr/>
+          <p>
+            YANA is an online support system for patients with chronic illnesses, their loved ones, and medical professionals to share stories, ask for help, and learn about new medical advances.
+          </p>
+        </div>
+        <br/>
+        <div className='button-group'>
+          <button>
+            <Link to='/illnesses'> Explore Illnesses </Link>
+          </button>
+          <button>
+            <Link to='/surveys'> Explore Surveys </Link>
+          </button>
+          <button>
+            <a href='/charts'> Explore Charts </a>
+          </button>
+        </div>
       </div>
     }
 
     return(
       <div className="grid-x">
+        <br/>
         <div className="welcomeQuote">
-          <br />
-          <br />
-          <br />
-          <div className="welcomeImage">
-            <div className="cell small-4" id="logoImage">
-            </div>
-            <div className="cell small-8">
-              <h1>YANA</h1>
-              <h2>Share. Support. Learn</h2>
-            </div>
-          </div>
           <div id="index">
-            {buttons}
+            {display}
           </div>
-          <blockquote>
-            <q>Our uniqueness makes us special, makes perception valuable. But it can also make us lonely. This loneliness is different from being alone: You can be lonely even surrounded by people. The feeling I am talking about stems from the sense that we can never fully share the truth of who we are.</q>
-            <em> - Amy Tan</em>
-          </blockquote>
         </div>
       </div>
     )
