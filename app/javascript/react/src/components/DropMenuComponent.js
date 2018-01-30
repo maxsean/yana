@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const DropMenuContainer = props => {
   return(
@@ -10,6 +10,6 @@ const DropMenuContainer = props => {
         <option name="post_type" value="news">Announce Medical News</option>
       </select>
     </label>
-  )
-}
-export default DropMenuContainer
+  );
+};
+export default DropMenuContainer;

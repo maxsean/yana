@@ -1,15 +1,12 @@
-import React from 'react'
-import ForumTile from '../components/ForumTile'
+import React from 'react';
+import ForumTile from '../components/ForumTile';
 
 // child of IllnessShowContainer
 class ForumIndexContainer extends React.Component{
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {
-
-    }
-  }
-  render(){
+  };
+  render() {
     // consider refactoring to just pass whole forum
     let forums = this.props.forums.map(forum => {
       return(
@@ -19,8 +16,8 @@ class ForumIndexContainer extends React.Component{
           name={forum.name}
           description={forum.description}
         />
-      )
-    })
+      );
+    });
     return(
       <div>
         <div id="intro">
@@ -32,8 +29,8 @@ class ForumIndexContainer extends React.Component{
           {forums}
         </div>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
-export default ForumIndexContainer
+export default ForumIndexContainer;

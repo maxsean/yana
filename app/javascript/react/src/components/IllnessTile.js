@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router'
+import { Link } from 'react-router';
 
 // child of IllnessIndexContainer
 const IllnessTile = (props) => {
@@ -13,7 +13,7 @@ const IllnessTile = (props) => {
       </div>
       <hr/>
     </div>
-  )
-}
+  );
+};
 
 export default IllnessTile;

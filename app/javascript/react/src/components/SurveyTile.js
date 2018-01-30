@@ -13,7 +13,7 @@ const SurveyTile = (props) => {
       </div>
       <hr/>
     </div>
-  )
-}
+  );
+};
 
 export default SurveyTile;

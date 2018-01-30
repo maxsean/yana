@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router'
+import { Link } from 'react-router';
 
 // child of ForumIndexContainer
 const ForumTile = (props) => {
@@ -13,7 +13,7 @@ const ForumTile = (props) => {
       </div>
       <hr/>
     </div>
-  )
-}
+  );
+};
 
 export default ForumTile;

@@ -11,12 +11,12 @@ class SignUpFormContainer extends Component {
       password: "",
       password_confirmation: "",
       errors: {}
-    }
-    this.addNewUser = this.addNewUser.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-    this.clearForm = this.clearForm.bind(this)
-  }
+    };
+    this.addNewUser = this.addNewUser.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.clearForm = this.clearForm.bind(this);
+  };
 
   clearForm() {
     this.setState({
@@ -24,8 +24,8 @@ class SignUpFormContainer extends Component {
       email: "",
       password: "",
       password_confirmation: ""
-    })
-  }
+    });
+  };
 
   addNewUser(formPayLoad) {
     fetch('/api/v1/users', {
@@ -40,26 +40,26 @@ class SignUpFormContainer extends Component {
         this.setState({ errors: data.error })
       } else {
         this.setState({ errors: data.messages })
-      }
-    })
-  }
+      };
+    });
+  };
 
   handleSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
     let formPayLoad = {
       handle: this.state.handle,
       email: this.state.email,
       password: this.state.password,
       password_confirmation: this.state.password_confirmation
-  }
-    this.addNewUser(formPayLoad)
-    this.clearForm()
+  };
+    this.addNewUser(formPayLoad);
+    this.clearForm();
   }
 
   handleChange(event) {
-    let name = event.target.name
-    let value = event.target.value
-    this.setState({ [name]: value })
+    let name = event.target.name;
+    let value = event.target.value;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -67,7 +67,7 @@ class SignUpFormContainer extends Component {
     let errors;
     if(this.state.errors != {}){
       errors = <FormErrors formErrors={this.state.errors}/>
-    }
+    };
     return(
       <div className="signUpFormContainer">
         <div style={{paddingLeft:'25%'}}>
@@ -110,8 +110,8 @@ class SignUpFormContainer extends Component {
           </div>
         </form>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default SignUpFormContainer;

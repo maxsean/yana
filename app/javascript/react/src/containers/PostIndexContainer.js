@@ -3,23 +3,23 @@ import PostTile from '../components/PostTile'
 
 // child of ForumShowContainer
 class PostIndexContainer extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       posts: this.props.posts
-    }
-  }
+    };
+  };
 
   componentWillReceiveProps(nextProps) {
     this.setState({ posts: nextProps.posts });
-  }
+  };
 
   // triggered by child PostTile
   handleDelete(id) {
-    this.props.deletePost(id)
-  }
+    this.props.deletePost(id);
+  };
 
-  render(){
+  render() {
     // consider refactoring to send whole post
     let posts = this.props.posts.map(post => {
       return(
@@ -38,14 +38,14 @@ class PostIndexContainer extends React.Component {
           forum_id={this.props.forum_id}
           post={post}
         />
-      )
-    })
+      );
+    });
     return(
       <div>
         {posts}
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default PostIndexContainer;

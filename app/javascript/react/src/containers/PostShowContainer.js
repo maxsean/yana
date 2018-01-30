@@ -1,10 +1,10 @@
 import React from 'react';
 import CommentIndexContainer from './CommentIndexContainer';
 import CommentFormContainer from './CommentFormContainer';
-import FormErrors from '../components/FormErrors'
+import FormErrors from '../components/FormErrors';
 
 class PostShowContainer extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       post: {},
@@ -17,23 +17,23 @@ class PostShowContainer extends React.Component {
       karma: 0,
       upvote: 0,
       downvote: 0
-    }
+    };
     this.addNewComment = this.addNewComment.bind(this);
     this.handleUpvoteClicked = this.handleUpvoteClicked.bind(this);
     this.handleDownvoteClicked = this.handleDownvoteClicked.bind(this);
     this.handleClearClicked = this.handleClearClicked.bind(this);
     this.deleteComment = this.deleteComment.bind(this);
-    this.fetchPost = this.fetchPost.bind(this)
-  }
+    this.fetchPost = this.fetchPost.bind(this);
+  };
 
   componentDidMount() {
     this.fetchCurrentUser();
-    this.fetchPost()
-  }
+    this.fetchPost();
+  };
 
   // fetch post, its comments association, and user association
   fetchPost() {
-    let postId = this.props.params.id
+    let postId = this.props.params.id;
     fetch(`/api/v1/posts/${postId}`)
     .then(response => response.json())
     .then(data => {
@@ -43,9 +43,9 @@ class PostShowContainer extends React.Component {
         post: post,
         comments: comments,
         post_user: post.user
-      })
-    })
-  }
+      });
+    });
+  };
 
   fetchCurrentUser() {
     fetch('/api/v1/users.json', {
@@ -57,15 +57,15 @@ class PostShowContainer extends React.Component {
     .then(data => {
       this.setState({ current_user: data.user });
       this.fetchPostVote(data.user.id, this.props.params.id)
-    })
-  }
+    });
+  };
 
   // fetch post current karma and current user's latest interactions
   fetchPostVote(user, post) {
     let check_state = {
       user_id: user,
       post_id: post
-    }
+    };
     fetch('/api/v1/post_votes', {
       method: "POST",
       body: JSON.stringify(check_state)
@@ -76,25 +76,25 @@ class PostShowContainer extends React.Component {
         this.setState({
           disabledUpvote: false,
           disabledDownvote: true
-        })
+        });
       } else if(data["value"] == 0) {
         this.setState({
           disabledUpvote: false,
           disabledDownvote: false
-        })
+        });
       } else if(data["value"] == 1) {
         this.setState({
           disabledUpvote: true,
           disabledDownvote: false
-        })
-      }
+        });
+      };
       this.setState({
         karma: data["karma"],
         upvote: data["upvote"],
         downvote: data["downvote"]
-      })
-    })
-  }
+      });
+    });
+  };
 
   // update button state and database, then return new post karma
   handleUpvoteClicked() {
@@ -107,7 +107,7 @@ class PostShowContainer extends React.Component {
         user_id: this.state.current_user.id,
         post_id: this.props.params.id,
         value: 1
-      }
+      };
       let postId = this.props.params.id
       fetch(`/api/v1/post_votes/${postId}`, {
         method: "PATCH",
@@ -119,10 +119,10 @@ class PostShowContainer extends React.Component {
           karma: data["karma"],
           upvote: data["upvote"],
           downvote: data["downvote"]
-        })
-      })
-    }
-  }
+        });
+      });
+    };
+  };
 
   // update button state and database, then return new post karma
   handleDownvoteClicked() {
@@ -135,8 +135,8 @@ class PostShowContainer extends React.Component {
         user_id: this.state.current_user.id,
         post_id: this.props.params.id,
         value: -1
-      }
-      let postId = this.props.params.id
+      };
+      let postId = this.props.params.id;
       fetch(`/api/v1/post_votes/${postId}`, {
         method: "PATCH",
         body: JSON.stringify(vote)}
@@ -147,10 +147,10 @@ class PostShowContainer extends React.Component {
           karma: data["karma"],
           upvote: data["upvote"],
           downvote: data["downvote"]
-        })
-      })
-    }
-  }
+        });
+      });
+    };
+  };
 
   // update button state and database, then return new post karma
   handleClearClicked() {
@@ -162,7 +162,7 @@ class PostShowContainer extends React.Component {
       user_id: this.state.current_user.id,
       post_id: this.props.params.id,
       value: 0
-    }
+    };
     let postId = this.props.params.id
     fetch(`/api/v1/post_votes/${postId}`, {
       method: "PATCH",
@@ -174,9 +174,9 @@ class PostShowContainer extends React.Component {
         karma: data["karma"],
         upvote: data["upvote"],
         downvote: data["downvote"]
-      })
-    })
-  }
+      });
+    });
+  };
 
   // triggerd by handleSubmit in child CommentFormContainer
   addNewComment(formPayload) {
@@ -189,49 +189,49 @@ class PostShowContainer extends React.Component {
     .then(response => { return response.json() })
     .then(data => {
       if (data.error) {
-        this.setState({ errors: data.error })
+        this.setState({ errors: data.error });
     } else {
         let comments = JSON.parse(data.comments)
         this.setState({
           errors: data.messages,
           comments: comments
-        })
-      }
-    })
-  }
+        });
+      };
+    });
+  };
 
   // triggered by child CommentTile
-  deleteComment(id){
+  deleteComment(id) {
     fetch(`/api/v1/comments/${id}`, {
       method: 'DELETE'
     })
     .then(() => {
-      this.fetchPost()
-    })
-  }
+      this.fetchPost();
+    });
+  };
 
-  render(){
+  render() {
     // only appears if backend returns errors or messages
     let errors;
     if(this.state.errors.body){
       errors = <FormErrors formErrors={this.state.errors}/>
-    }
+    };
 
     // only appears if user is signed in
     let commentForm =
       <h3>Sign in or sign up to leave a comment</h3>
-    if(this.state.current_user.id){
+    if(this.state.current_user.id) {
       commentForm =
       <CommentFormContainer
         addNewComment={this.addNewComment}
         current_user={this.state.current_user}
         post_id={this.props.params.id}
       />
-    }
+    };
 
     // only appears if post has comments
     let commentIndex;
-    if(this.state.comments.length > 0){
+    if(this.state.comments.length > 0) {
       commentIndex =
       <CommentIndexContainer
         comments={this.state.comments}
@@ -240,7 +240,7 @@ class PostShowContainer extends React.Component {
         fetchPost={this.fetchPost}
         post_id={this.props.params.id}
       />
-    }
+    };
 
     // only appears if user is signed in
     let vote;
@@ -262,7 +262,7 @@ class PostShowContainer extends React.Component {
           onClick={this.handleClearClicked}
           >Clear Vote</button>
       </div>
-    }
+    };
 
     return(
       <div>
@@ -277,7 +277,7 @@ class PostShowContainer extends React.Component {
           <hr/>
           <div>
             <p>
-              Made by {this.state.post_user.handle} on {Date(this.props.created_at).toString().substring(3,15)}
+              Made by {this.state.post_user.handle} on {new Date(this.props.created_at).toString().substring(3,15)}
             </p>
             <h2>Karma: {this.state.karma}</h2>
             {vote}
@@ -291,8 +291,8 @@ class PostShowContainer extends React.Component {
         <br/>
           {commentIndex}
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default PostShowContainer;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 // child of QuestionIndexContainer
 const QuestionTile = (props) => {
@@ -15,8 +15,8 @@ const QuestionTile = (props) => {
         />
         {" "+choice.body+" "}
       </div>
-    )
-  })
+    );
+  });
 
   return(
     <div id="tile">
@@ -28,6 +28,6 @@ const QuestionTile = (props) => {
       <hr />
     </div>
   )
-}
+};
 
-export default QuestionTile
+export default QuestionTile;

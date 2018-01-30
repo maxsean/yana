@@ -1,22 +1,22 @@
 import React from 'react'
 import QuestionIndexContainer from './QuestionIndexContainer';
-import FormErrors from '../components/FormErrors'
+import FormErrors from '../components/FormErrors';
 
 class SurveyShowContainer extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       survey: {},
       current_user: {},
       errors: {}
-    }
-    this.addNewSubmission = this.addNewSubmission.bind(this)
-  }
+    };
+    this.addNewSubmission = this.addNewSubmission.bind(this);
+  };
 
   componentDidMount() {
-    this.fetchCurrentUser()
-    this.fetchSurvey()
-  }
+    this.fetchCurrentUser();
+    this.fetchSurvey();
+  };
 
   fetchCurrentUser() {
     fetch('/api/v1/users.json', {
@@ -27,8 +27,8 @@ class SurveyShowContainer extends React.Component {
     .then(response => response.json())
     .then(data => {
       this.setState({ current_user: data.user });
-    })
-  }
+    });
+  };
 
   fetchSurvey() {
     fetch(`/api/v1/surveys/${this.props.params.id}`)
@@ -36,9 +36,9 @@ class SurveyShowContainer extends React.Component {
     .then(data => {
       this.setState({
         survey: data
-      })
-    })
-  }
+      });
+    });
+  };
 
   // triggered by QuestionIndexContainer child
   addNewSubmission(formPayload) {
@@ -52,16 +52,16 @@ class SurveyShowContainer extends React.Component {
     .then(data => {
       this.setState({
         errors: data.messages
-      })
-    })
-  }
+      });
+    });
+  };
 
   render() {
     // only appears if backend sends errors or messages
     let errors;
     if(this.state.errors != {}){
       errors = <FormErrors formErrors={this.state.errors}/>
-    }
+    };
 
     let questions;
     if (this.state.survey.id) {
@@ -71,7 +71,7 @@ class SurveyShowContainer extends React.Component {
         current_user={this.state.current_user}
         addNewSubmission={this.addNewSubmission}
       />
-    }
+    };
     return(
       <div>
         <div id="intro">
@@ -87,8 +87,8 @@ class SurveyShowContainer extends React.Component {
         <hr/>
         {questions}
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
-export default SurveyShowContainer
+export default SurveyShowContainer;

@@ -4,7 +4,7 @@ import TextAreaField from '../components/TextAreaField';
 import DropMenuComponent from '../components/DropMenuComponent';
 
 class PostFormContainer extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       title: "",
@@ -12,43 +12,43 @@ class PostFormContainer extends React.Component {
       forum_id: this.props.forum_id,
       user_id: this.props.current_user.id,
       post_type: "",
-    }
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-    this.clearForm = this.clearForm.bind(this)
-  }
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.clearForm = this.clearForm.bind(this);
+  };
 
   componentWillReceiveProps(nextProps) {
     this.setState({ user_id: nextProps.current_user.id });
-  }
+  };
 
   clearForm() {
     this.setState({
       title: "",
       body: "",
       post_type: ""
-    })
-  }
+    });
+  };
 
   // dependent on parent component - can either add new (parent forum show container) or edit existing (parent post tile)
   handleSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
     let formPayload = {
       title: this.state.title,
       body: this.state.body,
       post_type: this.state.post_type,
       forum_id: this.state.forum_id,
       user_id: this.state.user_id
-    }
-    this.props.addNewPost(formPayload)
-    this.clearForm()
-  }
+    };
+    this.props.addNewPost(formPayload);
+    this.clearForm();
+  };
 
   handleChange(event) {
-    let name = event.target.name
-    let value = event.target.value
-    this.setState({ [name]: value })
-  }
+    let name = event.target.name;
+    let value = event.target.value;
+    this.setState({ [name]: value });
+  };
 
   render() {
     return(
@@ -80,8 +80,8 @@ class PostFormContainer extends React.Component {
         </div>
         </form>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default PostFormContainer;

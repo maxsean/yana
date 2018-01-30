@@ -5,7 +5,7 @@ import PostFormContainer from '../containers/PostFormContainer';
 
 // child of PostIndexContainer
 class PostTile extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       karma: 0,
@@ -13,26 +13,26 @@ class PostTile extends React.Component {
       downvote: 0,
       edit: false,
       post: this.props.post
-    }
-    this.handleEditClick = this.handleEditClick.bind(this)
-    this.editPost = this.editPost.bind(this)
+    };
+    this.handleEditClick = this.handleEditClick.bind(this);
+    this.editPost = this.editPost.bind(this);
   }
 
   componentDidMount() {
-    this.fetchPostVote()
-  }
+    this.fetchPostVote();
+  };
 
   // make sure component rerenders when user submits new post, or edits/delete
   componentWillReceiveProps(nextProps) {
     this.setState({ post: nextProps.post });
-  }
+  };
 
   // get current post karma and current user's vote (and change state of buttons accordingly)
   fetchPostVote(user, post) {
     let check_state = {
       user_id: null,
       post_id: this.props.id
-    }
+    };
     fetch('/api/v1/post_votes', {
       method: "POST",
       body: JSON.stringify(check_state)
@@ -43,13 +43,13 @@ class PostTile extends React.Component {
         karma: data["karma"],
         upvote: data["upvote"],
         downvote: data["downvote"]
-      })
-    })
-  }
+      });
+    });
+  };
 
   // edit post function, called by handleSubmit in PostFormContainer child
   editPost(formPayload) {
-    let post_id = this.props.id
+    let post_id = this.props.id;
     fetch(`/api/v1/posts/${post_id}`, {
       credentials: 'same-origin',
       method: 'PATCH',
@@ -58,25 +58,25 @@ class PostTile extends React.Component {
     })
     .then(response => response.json())
     .then(data => {
-      this.setState({post: data})
-      this.props.fetchForum()
-    })
-  }
+      this.setState({post: data});
+      this.props.fetchForum();
+    });
+  };
 
   // toggles PostFormContainer child appearance
   handleEditClick(event) {
-    event.preventDefault()
-    this.setState({edit: true})
-  }
+    event.preventDefault();
+    this.setState({edit: true});
+  };
 
 
   render(){
-    let id = this.props.id
-    let created_at = this.props.created_at
+    let id = this.props.id;
+    let created_at = this.props.created_at;
 
     let buttons;
     // edit and delete buttons only appear if user made original comment
-    if(this.props.current_user.id == this.props.user.id){
+    if(this.props.current_user.id == this.props.user.id) {
       buttons =
       <div style={{float: "left"}}>
         <button style={{backgroundColor: "#00B200", marginRight: "10px"}} onClick={this.handleEditClick}>
@@ -86,11 +86,11 @@ class PostTile extends React.Component {
           Delete
         </button>
       </div>
-    }
+    };
 
     // toggles CommentFormContainer child appearance
     let editForm;
-    if(this.state.edit){
+    if(this.state.edit) {
       editForm =
       <div>
         <br/>
@@ -102,7 +102,7 @@ class PostTile extends React.Component {
           forum_id={this.props.forum_id}
         />
       </div>
-    }
+    };
 
     return(
       <div className="grid-x" id="tile">
@@ -113,7 +113,7 @@ class PostTile extends React.Component {
             <Link to={`/posts/${id}`}> {this.props.title} </Link>
           </div>
           <div>
-            Made by {this.props.user.handle} on {Date(created_at).toString().substring(3,15)}
+            Made by {this.props.user.handle} on {new Date(this.props.created_at).toString().substring(3,15)}
             <span>
               <p>Karma: {this.state.karma} | Comments: {this.props.comments.length}</p>
             </span>
@@ -123,8 +123,8 @@ class PostTile extends React.Component {
         </div>
         <hr/>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default PostTile;

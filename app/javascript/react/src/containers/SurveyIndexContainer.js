@@ -6,20 +6,20 @@ class SurveyIndexContainer extends React.Component {
     super(props);
     this.state = {
       surveys: {}
-    }
-  }
+    };
+  };
 
   componentDidMount() {
-    this.fetchSurveys()
-  }
+    this.fetchSurveys();
+  };
 
   fetchSurveys() {
     fetch('/api/v1/surveys')
     .then(response => response.json())
     .then(data => {
       this.setState({surveys: data})
-    })
-  }
+    });
+  };
 
   render() {
     let surveys;
@@ -32,9 +32,9 @@ class SurveyIndexContainer extends React.Component {
             title={survey.title}
             description={survey.description}
           />
-        )
-      })
-    }
+        );
+      });
+    };
     return(
       <div>
         <div id="intro">
@@ -46,8 +46,8 @@ class SurveyIndexContainer extends React.Component {
           {surveys}
         </div>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default SurveyIndexContainer;

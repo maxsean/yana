@@ -12,7 +12,7 @@ const TextAreaField = props => {
       value={props.content}
     />
     </label>
-  )
-}
+  );
+};
 
 export default TextAreaField;

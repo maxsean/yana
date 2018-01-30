@@ -11,7 +11,7 @@ const TextInputField = props => {
       value={props.content}
     />
     </label>
-  )
-}
+  );
+};
 
 export default TextInputField;

@@ -2,33 +2,33 @@ import React from 'react';
 import ForumIndexContainer from './ForumIndexContainer';
 
 class IllnessShowContainer extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       illness: {forums: []},
-    }
-  }
+    };
+  };
 
   componentDidMount() {
-    let illnessId = this.props.params.id
+    let illnessId = this.props.params.id;
     fetch(`/api/v1/illnesses/${illnessId}`)
     .then(response => response.json())
     .then(data => {
       this.setState({
         illness: data.illness,
-      })
-    })
-  }
+      });
+    });
+  };
 
-  render(){
+  render() {
     let forumIndex;
     // only appears if illness has forums
-    if(this.state.illness["forums"].length > 0){
+    if(this.state.illness["forums"].length > 0) {
       forumIndex =
       <ForumIndexContainer
         forums={this.state.illness["forums"]}
       />
-    }
+    };
     return(
       <div>
         <div id="intro">
@@ -51,8 +51,8 @@ class IllnessShowContainer extends React.Component {
         <hr/>
         {forumIndex}
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default IllnessShowContainer;

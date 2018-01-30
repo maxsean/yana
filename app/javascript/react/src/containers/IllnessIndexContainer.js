@@ -6,8 +6,8 @@ class IllnessIndexContainer extends React.Component {
     super(props);
     this.state = {
       illnesses: [],
-    }
-  }
+    };
+  };
 
   componentDidMount() {
     fetch("api/v1/illnesses")
@@ -15,9 +15,9 @@ class IllnessIndexContainer extends React.Component {
     .then(data => {
       this.setState({
         illnesses: data.illnesses,
-      })
-    })
-  }
+      });
+    });
+  };
 
   render(){
     let illnesses;
@@ -31,9 +31,9 @@ class IllnessIndexContainer extends React.Component {
             name={illness.name}
             description={illness.description}
           />
-        )
-      })
-    }
+        );
+      });
+    };
     return(
       <div>
         <div id="intro">
@@ -45,8 +45,8 @@ class IllnessIndexContainer extends React.Component {
           {illnesses}
         </div>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default IllnessIndexContainer;

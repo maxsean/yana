@@ -1,26 +1,26 @@
-import React from 'react'
-import CommentTile from '../components/CommentTile'
+import React from 'react';
+import CommentTile from '../components/CommentTile';
 
 // child of PostShowContainer
 class CommentIndexContainer extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       comments: {}
-    }
-  }
+    };
+  };
 
   // make sure component rerenders when user submits new comment, or edits/delete
   componentWillReceiveProps(nextProps) {
-    this.setState({ comments: nextProps.comments })
-  }
+    this.setState({ comments: nextProps.comments });
+  };
 
   // triggered by child CommentTile
   handleDelete(id) {
-    this.props.deleteComment(id)
-  }
+    this.props.deleteComment(id);
+  };
 
-  render(){
+  render() {
     // consider refactoring to just pass the whole comment
     let comments = this.props.comments.map(comment => {
       return(
@@ -36,8 +36,8 @@ class CommentIndexContainer extends React.Component {
           fetchPost={this.props.fetchPost}
           post_id={this.props.post_id}
         />
-      )
-    })
+      );
+    });
 
     return(
       <div>
@@ -48,8 +48,8 @@ class CommentIndexContainer extends React.Component {
         </span>
         {comments}
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default CommentIndexContainer;

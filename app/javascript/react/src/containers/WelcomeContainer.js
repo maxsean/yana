@@ -6,12 +6,12 @@ class WelcomeContainer extends Component {
     super(props);
     this.state = {
       current_user: {}
-    }
-  }
+    };
+  };
 
   componentDidMount() {
-    this.fetchCurrentUser()
-  }
+    this.fetchCurrentUser();
+  };
 
   fetchCurrentUser() {
     fetch('/api/v1/users.json', {
@@ -22,14 +22,14 @@ class WelcomeContainer extends Component {
     .then(response => response.json())
     .then(data => {
       this.setState({ current_user: data.user });
-    })
-  }
+    });
+  };
 
 
   render() {
     let display;
     // only appears if user signs in
-    if(this.state.current_user.id){
+    if(this.state.current_user.id) {
       display =
       <div>
         <div id="intro">
@@ -53,7 +53,7 @@ class WelcomeContainer extends Component {
           </button>
         </div>
       </div>
-    }
+    };
 
     return(
       <div className="grid-x">
@@ -64,8 +64,8 @@ class WelcomeContainer extends Component {
           </div>
         </div>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default WelcomeContainer;
