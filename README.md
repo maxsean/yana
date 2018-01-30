@@ -43,7 +43,6 @@ For Capybara tests run `rake`
 and for Jasmine-Enzyme tests run `karma start`.
 
 ## ToDo
-* Improve mobile support (responsiveness)
 * External API integration with ClinicalTrials.gov
 * External API integration with an open-source Health Information System (i.e. OpenMRS)
 * Search filters for posts
